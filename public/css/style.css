@@ -4,3 +4,19 @@
 .font-jost {
     font-family: Jost, sans-serif;
 }
+
+.text-sigrax-red {
+    color: #db0b49;
+}
+
+.text-sigrax-yellow {
+    color: #ebc364;
+}
+
+.bg-sigrax-red {
+    background-color: #F08080;
+}
+
+.bg-sigrax-yellow {
+    background-color: #ebc364;
+}
