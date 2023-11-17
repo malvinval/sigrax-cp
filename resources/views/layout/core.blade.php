@@ -16,6 +16,8 @@
     @include('partials/navbar')
 
     @yield("container")
+
+    @include('partials/footer')
 </body>
 {{-- Navbar Javascript --}}
 <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
