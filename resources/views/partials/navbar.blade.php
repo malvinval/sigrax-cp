@@ -35,19 +35,19 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-300 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">About</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-300 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Portfolio</a>
+                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Portfolio</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-300 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-300 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Articles</a>
+                        class="block py-2 pl-3 pr-4 text-gray-300 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Articles</a>
                 </li>
             </ul>
         </div>
