@@ -10,18 +10,7 @@
     {{-- Tailwind CDN --}}
     <script src="https://cdn.tailwindcss.com"></script>
 
-    {{-- Tailwind Config --}}
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                clifford: '#da373d',
-              }
-            }
-          }
-        }
-    </script>
+    
 </head>
 <body>
     @include('partials/navbar')

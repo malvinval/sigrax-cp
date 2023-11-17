@@ -1,7 +1,7 @@
-<nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
+<nav class="font-jost bg-white border-gray-200 py-2.5 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="#" class="flex items-center">
-            <img src="https://www.svgrepo.com/show/499962/music.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo">
+            
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sigrax</span>
         </a>
         <div class="flex items-center lg:order-2">
