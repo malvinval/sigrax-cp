@@ -19,6 +19,7 @@ class BlogSeeder extends Seeder
             "slug" => "perkenalan-sigrax-cmms",
             "hero_image" => "https://plus.unsplash.com/premium_photo-1661761077411-d50cba031848?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "content" => "Sigrax CMMS adalah sebuah asset management system.",
+            "excerpt" => "Sigrax CMMS adalah sebuah...",
             "created_at" => now("Asia/Jakarta"),
             "updated_at" => now("Asia/Jakarta")
         ]);
@@ -29,6 +30,7 @@ class BlogSeeder extends Seeder
             "slug" => "mengapa-perusahaan-anda-butuh-cmms",
             "hero_image" => "https://plus.unsplash.com/premium_photo-1661761077411-d50cba031848?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             "content" => "Karena CMMS kami sangat membantu dalam preventive maintainance",
+            "excerpt" => "Karena CMMS kami sangat membantu dalam...",
             "created_at" => now("Asia/Jakarta"),
             "updated_at" => now("Asia/Jakarta")
         ]);
