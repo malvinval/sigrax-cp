@@ -30,8 +30,8 @@ Route::get("/register", [AuthController::class, "register"])->middleware(["auth"
 
 Route::post("/login", [AuthController::class, "post_login"])->middleware("guest");
 
-Route::prefix("dashboard")->group(function() {
-    // blogs
-    Route::get("/blogs", [DashboardBlogsController::class, "blogs"])->middleware(["auth", "isAdmin"]);
-    Route::get("/blog/{slug}", [DashboardBlogsController::class, "view_blog"])->middleware(["auth", "isAdmin"]);
+Route::prefix("dashboard/blogs")->group(function() {
+    Route::get("/", [DashboardBlogsController::class, "blogs"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{slug}", [DashboardBlogsController::class, "view_blog"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{slug}/edit", [DashboardBlogsController::class, "edit_blog"])->middleware(["auth", "isAdmin"]);
 });

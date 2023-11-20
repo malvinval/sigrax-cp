@@ -23,4 +23,13 @@ class DashboardBlogsController extends Controller
 
         return view("dashboard.blog", compact("blog", "user"));
     }
+
+    public function edit_blog($slug) {
+        $user = Auth::user();
+
+        $blog = Blogs::where("slug", $slug)->get();
+        $blog = $blog[0];
+
+        return view("dashboard.edit_blog", compact("blog", "user"));
+    }
 }

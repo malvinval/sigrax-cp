@@ -2,6 +2,10 @@
 
 @section("container")
 
+<div onclick="openSidebar()" class="lg:hidden fixed m-1 cursor-pointer z-50 left-0 bottom-0 p-3 text-white border rounded-lg bg-gray-900">
+    <p><< >></p>
+</div>
+
 <div
         class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] pt-20 overflow-y-auto text-center bg-gray-900"
       >
@@ -57,8 +61,7 @@
 
   <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
     <div class="pb-10">
-        <a class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blog/{{ $blog->slug }}">View</a>
-        <a class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="">Edit</a>
+        <a class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $blog->slug }}/edit">Edit</a>
         <a class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg" href="">Delete</a>
       </div>
 
@@ -85,5 +88,5 @@
             </article>
         </div>
     </main>
-  </div>
+</div>
 @endsection
