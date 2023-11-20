@@ -45,11 +45,12 @@ class DashboardBlogsController extends Controller
 
     public function update(Request $request, $slug) {
         $blog = Blogs::where("slug", $slug);
+        $blog_collection = $blog->get();
 
-        if ($blog->isEmpty()) {
+        if ($blog_collection->isEmpty()) {
             return abort(404);
         } else {
-            $blog = $blog[0];
+            $blog_collection = $blog_collection[0];
         }
 
         $validatedData = $request->validate([
@@ -93,6 +94,13 @@ class DashboardBlogsController extends Controller
         $string = preg_replace('/[^a-zA-Z0-9\s]/', 'x', $string);
 
         $slug = str_replace(' ', '-', $string);
+
+        // check if slug already used
+        $blog = Blogs::where('slug', $slug)->get();
+
+        if(!$blog->isEmpty()) {
+            $slug .= "-".rand(1, 100000);
+        }
 
         return $slug;
     }
