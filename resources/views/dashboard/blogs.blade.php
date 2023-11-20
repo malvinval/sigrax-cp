@@ -10,7 +10,7 @@
 
   <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-      <h1 class="font-bold text-xl md:text-3xl pb-5">All blogs uploaded</h1>
+      <h1 class="font-bold text-xl md:text-3xl pb-5">All public blogs</h1>
       <a class="bg-green-500 px-3 py-1 rounded-lg text-white mb-5 md:mb-0 hover:bg-green-600" href="/dashboard/blogs/create">Create new blog</a>
     </div>
 
