@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +19,5 @@ Route::get('/', function () {
 
 Route::get("/blogs", [BlogsController::class, "index"]);
 Route::get("/blog/{slug}", [BlogsController::class, "blog"]);
+
+Route::get("/dashboard/blogs", [DashboardBlogsController::class, "blogs"])->middleware(["auth", "isAdmin"]);

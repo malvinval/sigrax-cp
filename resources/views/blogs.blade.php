@@ -3,13 +3,11 @@
 @section("container")
     <div class="w-full bg-white dark:bg-slate-800 font-jost">
         <div class="max-w-screen-xl mx-auto p-5">
-            
-            
             <section class="bg-white dark:bg-gray-900">
                 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                     <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                         <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Blogs</h2>
-                        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">This page is intended for those of you who want to understand more deeply about Sigrax CMMS</p>
+                        <p class="text-gray-500 sm:text-xl dark:text-gray-400">This page is intended for those of you who want to understand more deeply about Sigrax CMMS. You are an admin? Manage blogs <a href="/dashboard/blogs" class="text-blue-500 underline">here</a>.</p>
                     </div> 
                     <div class="grid gap-8 lg:grid-cols-2">
                         @foreach($blogs as $b)
