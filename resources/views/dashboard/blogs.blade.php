@@ -43,10 +43,13 @@
                           by: {{ $b->author }}
                       </span>
                   </div>
-                  <div class="pt-5">
-                    <a class="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}">View</a>
-                    <a class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}/edit">Edit</a>
-                    <a class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg" href="">Delete</a>
+                  <div class="pt-5 flex ">
+                    <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}">View</a>
+                    <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}/edit">Edit</a>
+                    <form action="/dashboard/blogs/{{ $b->id }}/destroy" method="POST">
+                      @csrf
+                      <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
+                    </form>
                   </div>
               </div>
           </article>                

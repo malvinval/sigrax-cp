@@ -37,4 +37,5 @@ Route::prefix("dashboard/blogs")->group(function() {
     Route::get("/{blogs:slug}/edit", [DashboardBlogsController::class, "edit"])->middleware(["auth", "isAdmin"]);
     Route::post("/{blogs:slug}/update", [DashboardBlogsController::class, "update"])->middleware(["auth", "isAdmin"]);
     Route::post("/", [DashboardBlogsController::class, "store"])->middleware(["auth", "isAdmin"]);
+    Route::post("/{blogs:id}/destroy", [DashboardBlogsController::class, "destroy"])->middleware(["auth", "isAdmin"]);
 });
