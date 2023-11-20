@@ -30,4 +30,11 @@
       document.querySelector(".sidebar").classList.toggle("hidden");
     }
 </script>
+
+{{-- Dashboard alert js --}}
+<script type="text/javascript">
+  function closeAlert() {
+    document.querySelector(".flash-alert").classList.toggle("hidden");
+  }
+</script>
 </html>

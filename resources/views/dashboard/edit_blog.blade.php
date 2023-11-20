@@ -62,7 +62,7 @@
     <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Editing: {{ $blog->title }}</h1>
 
-        <form method="POST" action="/dashboard/{{ $blog->slug }}" class="w-full lg:w-1/2">
+        <form method="POST" action="/dashboard/blogs/{{ $blog->slug }}/update" class="w-full lg:w-1/2">
             @csrf
 
             <div class="flex flex-col">

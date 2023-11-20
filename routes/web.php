@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardBlogsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,8 @@ Route::get("/register", [AuthController::class, "register"])->middleware(["auth"
 Route::post("/login", [AuthController::class, "post_login"])->middleware("guest");
 
 Route::prefix("dashboard/blogs")->group(function() {
-    Route::get("/", [DashboardBlogsController::class, "blogs"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{slug}", [DashboardBlogsController::class, "view_blog"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{slug}/edit", [DashboardBlogsController::class, "edit_blog"])->middleware(["auth", "isAdmin"]);
+    Route::get("/", [DashboardBlogsController::class, "index"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{slug}", [DashboardBlogsController::class, "show"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{slug}/edit", [DashboardBlogsController::class, "edit"])->middleware(["auth", "isAdmin"]);
+    Route::post("/{slug}/update", [DashboardBlogsController::class, "update"])->middleware(["auth", "isAdmin"]);
 });
