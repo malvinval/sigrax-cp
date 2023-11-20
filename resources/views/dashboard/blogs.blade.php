@@ -2,12 +2,12 @@
 
 @section("container")
 
-  <div onclick="openSidebar()" class="fixed m-1 cursor-pointer z-50 left-0 bottom-0 p-3 text-white border rounded-lg bg-gray-900">
+  <div onclick="openSidebar()" class="lg:hidden fixed m-1 cursor-pointer z-50 left-0 bottom-0 p-3 text-white border rounded-lg bg-gray-900">
       <p><< >></p>
   </div>
 
   <div
-        class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] pt-20 overflow-y-auto text-center bg-gray-900"
+        class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] pt-20 overflow-y-auto text-center bg-gray-900"
       >
       </span>
         <div class="text-gray-100 text-xl">
@@ -59,7 +59,7 @@
         </div>
   </div>
 
-  <div class="font-jost ml-0 sm:ml-52 lg:ml-80 mt-16 lg:mt-24 p-5">
+  <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
     <h1 class="font-bold text-xl md:text-3xl pb-5">All blogs uploaded</h1>
 
     <div>
