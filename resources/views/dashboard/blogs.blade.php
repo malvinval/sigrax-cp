@@ -29,31 +29,35 @@
     @endif
 
     <div>
-      @foreach($blogs as $b)
-          <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <div class="flex justify-between items-center mb-5 text-gray-500">
-                  <span class="text-sm">{{ $b->created_at }}</span>
-              </div>
-              <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="">{{ $b->title }}</a></h2>
-              <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $b->excerpt }}</p>
-              <div class="flex flex-col md:flex-row justify-between md:items-center">
-                  <div class="flex items-center space-x-4">
-                      <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
-                      <span class="font-medium dark:text-white">
-                          by: {{ $b->author }}
-                      </span>
-                  </div>
-                  <div class="pt-5 flex ">
-                    <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}">View</a>
-                    <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}/edit">Edit</a>
-                    <form action="/dashboard/blogs/{{ $b->id }}/destroy" method="POST">
-                      @csrf
-                      <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
-                    </form>
-                  </div>
-              </div>
-          </article>                
-      @endforeach
+      @if($blogs->count() > 0)
+        @foreach($blogs as $b)
+            <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex justify-between items-center mb-5 text-gray-500">
+                    <span class="text-sm">{{ $b->created_at }}</span>
+                </div>
+                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><a href="">{{ $b->title }}</a></h2>
+                <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $b->excerpt }}</p>
+                <div class="flex flex-col md:flex-row justify-between md:items-center">
+                    <div class="flex items-center space-x-4">
+                        <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                        <span class="font-medium dark:text-white">
+                            by: {{ $b->author }}
+                        </span>
+                    </div>
+                    <div class="pt-5 flex ">
+                      <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}">View</a>
+                      <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}/edit">Edit</a>
+                      <form action="/dashboard/blogs/{{ $b->id }}/destroy" method="POST">
+                        @csrf
+                        <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
+                      </form>
+                    </div>
+                </div>
+            </article>                
+        @endforeach
+      @else
+        <p class="text-red-500">No blogs published.</p>
+      @endif
     </div>
   </div>
 @endsection

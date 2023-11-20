@@ -8,6 +8,10 @@
                     <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                         <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Blogs</h2>
                         <p class="text-gray-500 sm:text-xl dark:text-gray-400">This page is intended for those of you who want to understand more deeply about Sigrax CMMS. You are an admin? Manage blogs <a href="/dashboard/blogs" class="text-blue-500 underline">here</a>.</p>
+                        
+                        @if($blogs->count() < 1)
+                            <p class="text-red-500 font-bold py-24">No blogs yet.</p>
+                        @endif
                     </div> 
                     <div class="grid gap-8 lg:grid-cols-2">
                         @foreach($blogs as $b)
