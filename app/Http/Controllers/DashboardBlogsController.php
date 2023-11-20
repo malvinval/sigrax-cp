@@ -19,7 +19,12 @@ class DashboardBlogsController extends Controller
         $user = Auth::user();
 
         $blog = Blogs::where("slug", $slug)->get();
-        $blog = $blog[0];
+
+        if ($blog->isEmpty()) {
+            return abort(404);
+        } else {
+            $blog = $blog[0];
+        }
 
         return view("dashboard.blog", compact("blog", "user"));
     }
@@ -28,13 +33,24 @@ class DashboardBlogsController extends Controller
         $user = Auth::user();
 
         $blog = Blogs::where("slug", $slug)->get();
-        $blog = $blog[0];
+
+        if ($blog->isEmpty()) {
+            return abort(404);
+        } else {
+            $blog = $blog[0];
+        }
 
         return view("dashboard.edit_blog", compact("blog", "user"));
     }
 
     public function update(Request $request, $slug) {
         $blog = Blogs::where("slug", $slug);
+
+        if ($blog->isEmpty()) {
+            return abort(404);
+        } else {
+            $blog = $blog[0];
+        }
 
         $validatedData = $request->validate([
             "title" => "required|min:1|max:255",
@@ -74,7 +90,7 @@ class DashboardBlogsController extends Controller
     public function generate_slug($string) {
         $string = strtolower($string);
 
-        $string = preg_replace('/[^a-zA-Z0-9\s]/', '', $string);
+        $string = preg_replace('/[^a-zA-Z0-9\s]/', 'x', $string);
 
         $slug = str_replace(' ', '-', $string);
 
