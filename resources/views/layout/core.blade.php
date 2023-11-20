@@ -15,8 +15,21 @@
 
     @yield("container")
 
-    @include('partials/footer')
+    {{ Request::is("dashboard*") ? "": "@include('partials/footer')"}}
 </body>
 {{-- Navbar Javascript --}}
 <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
+{{-- Dashboard sidebar js --}}
+<script type="text/javascript">
+    function dropdown() {
+      document.querySelector("#submenu").classList.toggle("hidden");
+      document.querySelector("#arrow").classList.toggle("rotate-0");
+    }
+    dropdown();
+
+    function openSidebar() {
+      document.querySelector(".sidebar").classList.toggle("hidden");
+    }
+</script>
 </html>

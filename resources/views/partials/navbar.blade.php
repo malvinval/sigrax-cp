@@ -1,4 +1,4 @@
-<nav class="font-jost bg-gray-900 border-gray-200 py-2.5 dark:bg-gray-900">
+<nav class="z-50 fixed top-0 left-0 right-0 font-jost bg-gray-900 border-gray-200 py-2.5 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="#" class="flex items-center">
             
