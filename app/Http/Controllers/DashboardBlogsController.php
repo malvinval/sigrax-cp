@@ -107,10 +107,10 @@ class DashboardBlogsController extends Controller
 
     public function generate_excerpt($string, $length) {
         if (strlen($string) <= $length) {
-            return $string;
+            return $string."...";
         } else {
             $excerpt = substr($string, 0, $length);
-            return $excerpt;
+            return $excerpt."...";
         }
     }
 }
