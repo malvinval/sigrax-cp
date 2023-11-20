@@ -33,4 +33,5 @@ Route::post("/login", [AuthController::class, "post_login"])->middleware("guest"
 Route::prefix("dashboard")->group(function() {
     // blogs
     Route::get("/blogs", [DashboardBlogsController::class, "blogs"])->middleware(["auth", "isAdmin"]);
+    Route::get("/blog/{slug}", [DashboardBlogsController::class, "view_blog"])->middleware(["auth", "isAdmin"]);
 });
