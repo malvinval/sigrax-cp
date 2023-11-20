@@ -32,7 +32,9 @@ Route::post("/login", [AuthController::class, "post_login"])->middleware("guest"
 
 Route::prefix("dashboard/blogs")->group(function() {
     Route::get("/", [DashboardBlogsController::class, "index"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{slug}", [DashboardBlogsController::class, "show"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{slug}/edit", [DashboardBlogsController::class, "edit"])->middleware(["auth", "isAdmin"]);
-    Route::post("/{slug}/update", [DashboardBlogsController::class, "update"])->middleware(["auth", "isAdmin"]);
+    Route::get("/create", [DashboardBlogsController::class, "create"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{blogs:slug}", [DashboardBlogsController::class, "show"])->middleware(["auth", "isAdmin"]);
+    Route::get("/{blogs:slug}/edit", [DashboardBlogsController::class, "edit"])->middleware(["auth", "isAdmin"]);
+    Route::post("/{blogs:slug}/update", [DashboardBlogsController::class, "update"])->middleware(["auth", "isAdmin"]);
+    Route::post("/", [DashboardBlogsController::class, "store"])->middleware(["auth", "isAdmin"]);
 });

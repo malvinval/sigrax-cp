@@ -60,7 +60,10 @@
   </div>
 
   <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
-    <h1 class="font-bold text-xl md:text-3xl pb-5">All blogs uploaded</h1>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <h1 class="font-bold text-xl md:text-3xl pb-5">All blogs uploaded</h1>
+      <a class="bg-green-500 px-3 py-1 rounded-lg text-white mb-5 md:mb-0 hover:bg-green-600" href="/dashboard/blogs/create">Create new blog</a>
+    </div>
 
     @if(session("success"))
       <div class="flash-alert flex w-full md:w-1/2 lg:w-1/3 mb-5 shadow-lg rounded-lg">

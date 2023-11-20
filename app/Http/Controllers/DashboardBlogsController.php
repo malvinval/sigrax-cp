@@ -49,6 +49,28 @@ class DashboardBlogsController extends Controller
         return redirect("/dashboard/blogs")->with("success", "Blog updated!");
     }
 
+    public function create(Request $request) {
+        $user = Auth::user();
+        
+        return view("dashboard.create", compact("user"));
+    }
+
+    public function store(Request $request) {
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "content" => "required|min:1",
+        ]);
+
+        $validatedData["author"] = Auth::user()->name;
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
+        $validatedData["excerpt"] = $this->generate_excerpt($validatedData["content"], 20);
+        $validatedData["hero_image"] = "";
+        
+        Blogs::create($validatedData);
+
+        return redirect("/dashboard/blogs")->with("success", "New blog created!");
+    }
+
     public function generate_slug($string) {
         $string = strtolower($string);
 
