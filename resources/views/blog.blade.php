@@ -2,7 +2,7 @@
 
 @section("container")
 
-<main class="font-jost pt-8 pb-16 lg:pt-24 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+<main class="font-jost pt-24 pb-16 lg:pt-24 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
         <article class="mx-auto w-full max-w-3xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
             <header class="mb-4 lg:mb-6 not-format">
@@ -25,4 +25,6 @@
         </article>
     </div>
 </main>
+
+@include("partials/footer")
 @endsection
