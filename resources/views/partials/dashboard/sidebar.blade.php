@@ -48,6 +48,6 @@
         </div>
         <form class="flex py-8 px-2" action="/logout" method="POST">
             @csrf
-            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg cursor-pointer px-4 font-bold">Logout</button>
+            <button onclick="alert('Are you sure want to logout?')" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg cursor-pointer px-4 font-bold">Logout</button>
         </form>
 </div>
