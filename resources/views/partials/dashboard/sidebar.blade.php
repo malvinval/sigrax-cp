@@ -46,12 +46,8 @@
             Create new blog
         </a>
         </div>
-        <div
-        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-red-600 text-white"
-        >
-        <form action="/logout" method="POST">
+        <form class="flex py-8 px-2" action="/logout" method="POST">
             @csrf
-            <button class="cursor-pointer px-4 font-bold">Logout</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg cursor-pointer px-4 font-bold">Logout</button>
         </form>
-        </div>
 </div>
