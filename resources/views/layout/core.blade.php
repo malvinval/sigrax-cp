@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env("APP_NAME") }}</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="shortcut icon" src="{{asset('sigrax-logo.webbp')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ url('images/sigrax-logo.webp')}}" type="image/x-icon">
 
     {{-- Tailwind CDN --}}
     <script src="https://cdn.tailwindcss.com"></script>
