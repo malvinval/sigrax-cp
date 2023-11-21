@@ -2,9 +2,9 @@
 
 @section("container")
 
-<main class="min-h-[910px] font-jost pb-10 pt-24 lg:pt-24 bg-white dark:bg-gray-900 antialiased">
+<main class="min-h-[910px] font-jost pb-16 pt-24 lg:pt-32 bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
-        <article class="mx-auto w-full max-w-3xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+        <article class="mx-auto w-full max-w-4xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
             <header class="mb-4 lg:mb-6 not-format">
                 <address class="flex items-center mb-6 not-italic">
                     <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
