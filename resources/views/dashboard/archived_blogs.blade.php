@@ -45,7 +45,7 @@
               </article>                
           @endforeach
         @else
-          <p class="text-red-500">No blogs published.</p>
+          <p class="text-red-500">No blogs archived.</p>
         @endif
       </div>
     </div>
