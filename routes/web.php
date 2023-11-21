@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardBlogsController;
 use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,17 +25,23 @@ Route::get('/', function () {
 Route::get("/blogs", [BlogsController::class, "index"]);
 Route::get("/blog/{slug}", [BlogsController::class, "blog"]);
 
+Route::controller(AuthController::class)->group(function() {
+    Route::middleware("guest")->group(function() {
+        Route::get("/login", "login")->name("login");
+        Route::post("/login", "post_login");
+    });
 
-Route::get("/login", [AuthController::class, "login"])->middleware("guest")->name("login");
-Route::get("/register", [AuthController::class, "register"])->middleware(["auth", "isAdmin"]);
-
-Route::post("/login", [AuthController::class, "post_login"])->middleware("guest");
+    Route::middleware(["auth", "isAdmin"])->group(function() {
+        Route::get("/register", "register");
+        Route::post("/logout", "logout");
+    });
+});
 
 Route::middleware(["auth", "isAdmin"])->group(function() {
     Route::prefix("dashboard")->group(function() {
-        
-        Route::prefix("/blogs")->group(function() {
-            Route::controller(DashboardBlogsController::class)->group(function() {
+        Route::controller(DashboardBlogsController::class)->group(function() {
+            Route::get("/", "index");
+            Route::prefix("/blogs")->group(function() {
                 Route::get("/", "index");
                 Route::get("/archived", "index");
                 Route::get("/create", "create");
@@ -45,6 +52,5 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
                 Route::post("/{blogs:id}/destroy", "destroy");
             });
         });
-        
     });
 });
