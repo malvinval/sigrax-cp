@@ -17,19 +17,19 @@
       <div>
         @if($blogs->count() > 0)
           @foreach($blogs as $b)
-              <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                   <div class="flex justify-between items-center mb-5 text-gray-500">
                       <span class="text-sm">{{ $b->created_at }}</span>
                       <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-amber-600 bg-amber-200 uppercase last:mr-0 mr-1">
                         archived
                       </span>
                   </div>
-                  <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white"><a href="/dashboard/blogs/{{ $b->slug }}">{{ $b->title }}</a></h2>
-                  <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ $b->excerpt }}</p>
+                  <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/blogs/{{ $b->slug }}">{{ $b->title }}</a></h2>
+                  <p class="mb-5 font-light text-gray-500">{{ $b->excerpt }}</p>
                   <div class="flex flex-col md:flex-row justify-between md:items-center">
                       <div class="flex items-center space-x-4">
                           <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
-                          <span class="font-medium dark:text-white">
+                          <span class="font-medium text-gray-900">
                               by: {{ $b->author }}
                           </span>
                       </div>
