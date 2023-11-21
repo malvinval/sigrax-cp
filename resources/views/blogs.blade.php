@@ -1,7 +1,7 @@
 @extends("layout/core")
 
 @section("container")
-    <div class="w-full bg-white dark:bg-slate-800 py-12 font-jost">
+    <div class="min-h-[834px] w-full bg-white dark:bg-slate-800 py-12 font-jost">
         <div class="max-w-screen-xl mx-auto p-5">
             <section>
                 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">

@@ -2,7 +2,7 @@
 
 @section("container")
 
-<main class="font-jost pt-24 pb-16 lg:pt-24 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+<main class="min-h-[834px] font-jost pt-24 lg:pt-24 bg-white dark:bg-gray-900 antialiased">
     <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
         <article class="mx-auto w-full max-w-3xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
             <header class="mb-4 lg:mb-6 not-format">
@@ -18,7 +18,7 @@
                 </address>
                 <h1 class="mb-4 text-3xl font-bold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ $blog->title }}</h1>
 
-                <div class="container text-justify">
+                <div class="container text-lg text-justify text-gray-900 dark:text-gray-300">
                     {{ $blog->content }}
                 </div>
             </header>
