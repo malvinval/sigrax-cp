@@ -30,12 +30,20 @@ Route::get("/register", [AuthController::class, "register"])->middleware(["auth"
 
 Route::post("/login", [AuthController::class, "post_login"])->middleware("guest");
 
-Route::prefix("dashboard/blogs")->group(function() {
-    Route::get("/", [DashboardBlogsController::class, "index"])->middleware(["auth", "isAdmin"]);
-    Route::get("/create", [DashboardBlogsController::class, "create"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{blogs:slug}", [DashboardBlogsController::class, "show"])->middleware(["auth", "isAdmin"]);
-    Route::get("/{blogs:slug}/edit", [DashboardBlogsController::class, "edit"])->middleware(["auth", "isAdmin"]);
-    Route::post("/{blogs:slug}/update", [DashboardBlogsController::class, "update"])->middleware(["auth", "isAdmin"]);
-    Route::post("/", [DashboardBlogsController::class, "store"])->middleware(["auth", "isAdmin"]);
-    Route::post("/{blogs:id}/destroy", [DashboardBlogsController::class, "destroy"])->middleware(["auth", "isAdmin"]);
+Route::middleware(["auth", "isAdmin"])->group(function() {
+    Route::prefix("dashboard")->group(function() {
+        
+        Route::prefix("/blogs")->group(function() {
+            Route::controller(DashboardBlogsController::class)->group(function() {
+                Route::get("/", "index");
+                Route::get("/create", "create");
+                Route::get("/{blogs:slug}", "show");
+                Route::get("/{blogs:slug}/edit", "edit");
+                Route::post("/{blogs:slug}/update", "update");
+                Route::post("/", "store");
+                Route::post("/{blogs:id}/destroy", "destroy");
+            });
+        });
+        
+    });
 });
