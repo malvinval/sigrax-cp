@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("slug")->unique();
             $table->text("content");
             $table->string("excerpt");
+            $table->enum("isArchived", ['0', '1'])->default('0');
             $table->text("hero_image");
             $table->timestamps();
         });

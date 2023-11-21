@@ -1,5 +1,5 @@
 <div
-        class="sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] pt-20 overflow-y-auto text-center bg-gray-900"
+        class="font-jost sidebar hidden lg:block fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] pt-20 overflow-y-auto text-center bg-gray-900"
     >
     </span>
         <div class="text-gray-100 text-xl">
@@ -37,13 +37,13 @@
         id="submenu"
         >
         <a href="/dashboard/blogs" class="selection:text-fuchsia-900 cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            All blogs
+            Published
         </a>
-        <a class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Archived blogs
+        <a href="/dashboard/blogs/archived" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+            Archived
         </a>
         <a href="/dashboard/blogs/create" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Create blog
+            Create new blog
         </a>
         </div>
         <div

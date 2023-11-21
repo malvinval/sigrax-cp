@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BlogsController extends Controller
 {
     public function index(Request $request) {
-        $blogs = Blogs::all();
+        $blogs = Blogs::where("isArchived", '0')->get();
 
         return view("blogs", compact("blogs"));
     }

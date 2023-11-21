@@ -36,6 +36,7 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
         Route::prefix("/blogs")->group(function() {
             Route::controller(DashboardBlogsController::class)->group(function() {
                 Route::get("/", "index");
+                Route::get("/archived", "index");
                 Route::get("/create", "create");
                 Route::get("/{blogs:slug}", "show");
                 Route::get("/{blogs:slug}/edit", "edit");

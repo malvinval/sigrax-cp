@@ -10,7 +10,13 @@ class DashboardBlogsController extends Controller
 {
     public function index(Request $request) {
         $user = Auth::user();
-        $blogs = Blogs::all();
+        $request_path = $request->path();
+        $blogs = Blogs::where("isArchived", '0')->get();
+
+        if ($request_path == "dashboard/blogs/archived") {
+            $blogs = Blogs::where("isArchived", '1')->get();
+            return view("dashboard.archived_blogs", compact("user", "blogs"));
+        }
 
         return view("dashboard.blogs", compact("user", "blogs"));
     }
@@ -61,6 +67,12 @@ class DashboardBlogsController extends Controller
         $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
         $validatedData["excerpt"] = $this->generate_excerpt($validatedData["content"], 20);
 
+        if($request->public == "on") {
+            $validatedData["isArchived"] = '0';
+        } else {
+            $validatedData["isArchived"] = '1';
+        }
+
         $blog->update($validatedData);
 
         return redirect("/dashboard/blogs")->with("success", "Blog updated!");
@@ -82,6 +94,12 @@ class DashboardBlogsController extends Controller
         $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
         $validatedData["excerpt"] = $this->generate_excerpt($validatedData["content"], 20);
         $validatedData["hero_image"] = "";
+
+        if($request->public == "on") {
+            $validatedData["isArchived"] = '0';
+        } else {
+            $validatedData["isArchived"] = '1';
+        }
         
         Blogs::create($validatedData);
 
