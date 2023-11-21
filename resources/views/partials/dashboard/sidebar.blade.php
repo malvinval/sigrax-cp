@@ -42,7 +42,7 @@
         <a class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
             Archived blogs
         </a>
-        <a class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+        <a href="/dashboard/blogs/create" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
             Create blog
         </a>
         </div>
