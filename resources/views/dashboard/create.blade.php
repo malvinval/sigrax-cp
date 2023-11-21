@@ -28,7 +28,7 @@
                 <label class="mx-2" for="public"><p class="text-lg">Set as Public</p></label>
             </div>
 
-            <button type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Upload</button>
+            <button onclick="alert('Are you sure want to publish this blog?')" type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Upload</button>
         </form>
     </div>
 @endsection
