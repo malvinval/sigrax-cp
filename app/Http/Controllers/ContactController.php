@@ -98,7 +98,9 @@ class ContactController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Contact::destroy($id);
+
+        return redirect("/dashboard/manage-contacts")->with("success", "Contact deleted!");
     }
 
     public function standarizeContactUrl($type, $url) {
