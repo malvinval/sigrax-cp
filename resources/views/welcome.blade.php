@@ -8,7 +8,7 @@
             </div>
             <div class="flex flex-col flex-grow lg:h-screen text-left font-jost mx-auto grid place-items-center lg:w-1/2 pt-12 lg:pt-6 pb-16 px-10 lg:px-12 bg-white dark:bg-slate-800">
                 <div>
-                    <h1 class="font-bold text-3xl lg:text-7xl drop-shadow-xl">SIGRAX EAMS</h1>
+                    <h1 class="font-bold text-3xl lg:text-7xl drop-shadow-xl">SIGRAX CMMS</h1>
                     <h3 class="font-medium text-sm sm:text-lg pt-8">We are a dedicated team of seasoned professionals, well-versed in our field and deeply connected to our local context. Our strength lies in our unwavering commitment to being a reliable partner for our customers.</h3>
                     <h3 class="font-medium text-sm sm:text-lg pt-8">Starting as a service provider, we have always prioritized understanding our customers' unique needs. Our goal is simple: to provide the most suitable solutions to help them achieve their objectives. Our track record speaks for itself, as we consistently deliver results and exceed expectations.</h3>
                 </div>
