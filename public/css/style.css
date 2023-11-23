@@ -1,4 +1,7 @@
-/* Jost Font */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700;900&display=swap');
 
 .font-jost {

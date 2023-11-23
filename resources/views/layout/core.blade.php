@@ -7,9 +7,11 @@
     <title>{{ env("APP_NAME") }}</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="{{ url('images/sigrax-logo.webp')}}" type="image/x-icon">
+    @vite('resources/css/app.css')
+    <link rel="stylesheet" href="../../../dist/output.css">
 
     {{-- Tailwind CDN --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 </head>
 <body>
     @include('partials/navbar')
