@@ -42,9 +42,8 @@ class ContactController extends Controller
         ]);
 
         $validatedData["value"] = $this->standarizeContactValue($validatedData["type"], $validatedData["url"]);
-        $validatedData["url"] = $this->standarizeContactUrl($validatedData["type"], $validatedData["url"]);
 
-        $validatedData["slug"] = $this->generateContactSlug($validatedData["type"]);
+        $validatedData["url"] = $this->standarizeContactUrl($validatedData["type"], $validatedData["url"]);
 
         Contact::create($validatedData);
 
@@ -62,10 +61,9 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $slug)
+    public function edit(string $id)
     {
-        $contact = Contact::where("slug", $slug)->get();
-        $contact = $contact[0];
+        $contact = Contact::find($id);
         $user = Auth::user();
 
         return view("dashboard.contacts.edit", compact("contact", "user"));
@@ -74,9 +72,25 @@ class ContactController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $slug)
+    public function update(Request $request, string $id)
     {
-        
+        $contact = Contact::find($id);
+
+        if ($contact === null) {
+            return abort(404);
+        }
+
+        $validatedData = $request->validate([
+            "type" => "required|in:EMAIL,WHATSAPP,INSTAGRAM,GITHUB,TWITTER",
+            "url" => "required|max:255"
+        ]);
+
+        $validatedData["value"] = $this->standarizeContactValue($validatedData["type"], $validatedData["url"]);
+        $validatedData["url"] = $this->standarizeContactUrl($validatedData["type"], $validatedData["url"]);
+
+        $contact->update($validatedData);
+
+        return redirect("/dashboard/manage-contacts")->with("success", "Contact updated!");
     }
 
     /**
@@ -123,9 +137,5 @@ class ContactController extends Controller
             $prefix = "https://www.twitter.com/";
             return $this->operateContactValueStandarization($url, $prefix);
         }
-    }
-
-    public function generateContactSlug($type) {
-        return strtolower($type);
     }
 }

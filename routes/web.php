@@ -55,6 +55,6 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
             });
         });
 
-        Route::resource("/manage-contacts", ContactController::class);
+        Route::resource("/manage-contacts", ContactController::class)->except("show");
     });
 });

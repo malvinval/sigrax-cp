@@ -26,8 +26,8 @@
                     </div>
                     <div class="flex flex-row pt-3">
                         {{-- <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}">View</a> --}}
-                        <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}/edit">Edit</a>
-                        <form action="/dashboard/manage-contacts/{{ $c->slug }}" method="DELETE">
+                        <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->id }}/edit">Edit</a>
+                        <form action="/dashboard/manage-contacts/{{ $c->id }}" method="DELETE">
                             @csrf
                             <button onclick="alert('Are you sure want to delete this blog?')" class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                         </form>

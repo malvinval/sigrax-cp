@@ -10,13 +10,18 @@
     <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Editing: {{ $contact->type }}</h1>
 
-        <form method="PUT" action="/dashboard/manage-contacts/{{ $contact->slug }}" class="w-full lg:w-1/2">
+        <form method="POST" action="/dashboard/manage-contacts/{{ $contact->id }}" class="w-full lg:w-1/2">
             @csrf
 
             <div class="flex flex-col">
                 <label class="text-lg py-2" for="url">Value</label>
                 <input value="{{ $contact->value }}" class="p-2 border border-gray-300 rounded-lg" type="text" name="url" id="url" placeholder="Enter a valid URL..." required>
             </div>
+
+            <input type="hidden" name="type" value="{{ $contact->type }}">
+
+            {{-- method spoofing --}}
+            <input type="hidden" name="_method" value="PUT">
 
             <button onclick="alert('Are you sure want to update this contact?')" type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-yellow-500 hover:bg-yellow-600">Update</button>
         </form>
