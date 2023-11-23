@@ -21,11 +21,11 @@
             @foreach($contacts as $c)
                 <div class="lg:w-1/3 border rounded-lg p-4 mr-2 mb-3">
                     <div class="font-medium text-xl">{{ $c->type }}</div>
-                    <div class="w-full py-2 overflow-scroll">
-                        <p class="text-gray-500">{{ $c->url }}</p>
+                    <div class="w-full py-2">
+                        <a target="_blank" href="{{ $c->url }}" class="text-blue-500 underline">{{ $c->value }}</a>
                     </div>
-                    <div class="flex flex-row pt-3 overflow-scroll">
-                        <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}">View</a>
+                    <div class="flex flex-row pt-3">
+                        {{-- <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}">View</a> --}}
                         <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}/edit">Edit</a>
                         <form action="/dashboard/manage-contacts/{{ $c->slug }}" method="DELETE">
                             @csrf
@@ -38,6 +38,6 @@
     @else
         <p class="text-red-500">No contacts provided.</p>
     @endif
-  </div>
+</div>
 
 @endsection

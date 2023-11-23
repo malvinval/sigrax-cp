@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->enum("type", ["EMAIL", "WHATSAPP", "INSTAGRAM", "FACEBOOK", "GITHUB", "TWITTER"]);
+            $table->enum("type", ["EMAIL", "WHATSAPP", "INSTAGRAM", "GITHUB", "TWITTER"]);
+            $table->string("value")->nullable();
             $table->string("url");
             $table->string("slug")->nullable();
             $table->timestamps();

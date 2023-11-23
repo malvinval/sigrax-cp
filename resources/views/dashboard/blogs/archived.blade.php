@@ -20,7 +20,7 @@
               <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                   <div class="flex justify-between items-center mb-5 text-gray-500">
                       <span class="text-sm">{{ $b->created_at }}</span>
-                      <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-amber-600 bg-amber-200 uppercase last:mr-0 mr-1">
+                      <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-amber-600 bg-amber-200 uppercase last:mr-0 mr-1">
                         archived
                       </span>
                   </div>

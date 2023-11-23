@@ -36,23 +36,18 @@
         class="text-left flex flex-col text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold"
         id="submenu"
         >
-        <a href="/dashboard/blogs" class="selection:text-fuchsia-900 cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Published
-        </a>
-        <a href="/dashboard/blogs/archived" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Archived
-        </a>
-        <a href="/dashboard/blogs/create" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-            Create new blog
-        </a>
+            <a href="/dashboard/blogs" class="selection:text-fuchsia-900 cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                Published
+            </a>
+            <a href="/dashboard/blogs/archived" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                Archived
+            </a>
+            <a href="/dashboard/blogs/create" class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+                Create new blog
+            </a>
         </div>
 
-        <div
-            class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-            >
-            <i class="bi bi-house-door-fill"></i>
-            <a href="/dashboard/manage-contacts" class="text-[15px] ml-4 text-gray-200 font-bold">Manage contacts</a>
-        </div>
+        <a href="/dashboard/manage-contacts" class="text-[15px] ml-4 p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white font-bold">Manage contacts</a>
 
         <form class="flex py-8 px-2" action="/logout" method="POST">
             @csrf
