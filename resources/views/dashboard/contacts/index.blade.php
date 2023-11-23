@@ -39,10 +39,10 @@
                     <div class="flex flex-row pt-3">
                         {{-- <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->slug }}">View</a> --}}
                         <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/manage-contacts/{{ $c->id }}/edit">Edit</a>
-                        <form action="/dashboard/manage-contacts/{{ $c->id }}" method="POST">
+                        <form onsubmit="return confirm('Do you really want to delete this contact?');" action="/dashboard/manage-contacts/{{ $c->id }}" method="POST">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
-                            <button onclick="alert('Are you sure want to delete this contact?')" class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
+                            <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                         </form>
                     </div>
                 </div>

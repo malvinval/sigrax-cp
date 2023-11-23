@@ -11,7 +11,7 @@
     <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Create new contact</h1>
 
-        <form method="POST" action="/dashboard/manage-contacts" class="w-full lg:w-1/2">
+        <form onsubmit="return confirm('Do you really want to publish this contact?');" method="POST" action="/dashboard/manage-contacts" class="w-full lg:w-1/2">
             @csrf
 
             <div class="flex flex-col">
@@ -32,7 +32,7 @@
                 <input class="p-2 border border-gray-300 rounded-lg" type="text" name="url" id="url" placeholder="email: maintainance@sigrax.com, whatsapp: 628176884026" required>
             </div>
 
-            <button onclick="alert('Are you sure want to create new contact?')" type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Create</button>
+            <button type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Create</button>
         </form>
     </div>
 

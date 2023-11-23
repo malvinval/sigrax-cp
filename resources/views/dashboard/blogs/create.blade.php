@@ -10,7 +10,7 @@
     <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Create new blog</h1>
 
-        <form method="POST" action="/dashboard/blogs" class="w-full lg:w-1/2">
+        <form onsubmit="return confirm('Do you really want to publish this blog?');" method="POST" action="/dashboard/blogs" class="w-full lg:w-1/2">
             @csrf
 
             <div class="flex flex-col">
@@ -28,7 +28,7 @@
                 <label class="mx-2" for="public"><p class="text-lg">Set as Public</p></label>
             </div>
 
-            <button onclick="alert('Are you sure want to publish this blog?')" type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Upload</button>
+            <button type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-green-500 hover:bg-green-600">Upload</button>
         </form>
     </div>
 @endsection

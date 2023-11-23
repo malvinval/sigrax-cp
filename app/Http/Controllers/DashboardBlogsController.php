@@ -109,7 +109,7 @@ class DashboardBlogsController extends Controller
     public function destroy($id) {
         Blogs::destroy($id);
 
-        return redirect("/dashboard/blogs")->with("success", "New blog deleted!");
+        return redirect("/dashboard/blogs")->with("success", "Blog deleted!");
     }
 
     public function generate_slug($string) {

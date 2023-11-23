@@ -11,8 +11,7 @@
     <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Archived blogs</h1>
-        <a class="bg-green-500 px-3 py-1 rounded-lg text-white mb-5 md:mb-0 hover:bg-green-600" href="/dashboard/blogs/create">Create new blog</a>
-      </div>
+    </div>
   
       <div>
         @if($blogs->count() > 0)
@@ -36,7 +35,7 @@
                       <div class="pt-5 flex ">
                         <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}">View</a>
                         <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/blogs/{{ $b->slug }}/edit">Edit</a>
-                        <form action="/dashboard/blogs/{{ $b->id }}/destroy" method="POST">
+                        <form onsubmit="return confirm('Do you really want to delete this archived blog?');" action="/dashboard/blogs/{{ $b->id }}/destroy" method="POST">
                           @csrf
                           <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                         </form>
