@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardBlogsController;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -39,6 +40,7 @@ Route::controller(AuthController::class)->group(function() {
 
 Route::middleware(["auth", "isAdmin"])->group(function() {
     Route::prefix("dashboard")->group(function() {
+        
         Route::controller(DashboardBlogsController::class)->group(function() {
             Route::get("/", "index");
             Route::prefix("/blogs")->group(function() {
@@ -52,5 +54,7 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
                 Route::post("/{blogs:id}/destroy", "destroy");
             });
         });
+
+        Route::resource("/manage-contacts", ContactController::class);
     });
 });

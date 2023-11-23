@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Contact;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,7 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BlogSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            ContactSeeder::class
         ]);
     }
 }

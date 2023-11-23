@@ -15,10 +15,10 @@ class DashboardBlogsController extends Controller
 
         if ($request_path == "dashboard/blogs/archived") {
             $blogs = Blogs::where("isArchived", '1')->get();
-            return view("dashboard.archived_blogs", compact("user", "blogs"));
+            return view("dashboard.blogs.archived", compact("user", "blogs"));
         }
 
-        return view("dashboard.blogs", compact("user", "blogs"));
+        return view("dashboard.blogs.index", compact("user", "blogs"));
     }
 
     public function show($slug) {
@@ -32,7 +32,7 @@ class DashboardBlogsController extends Controller
             $blog = $blog[0];
         }
 
-        return view("dashboard.blog", compact("blog", "user"));
+        return view("dashboard.blogs.show", compact("blog", "user"));
     }
 
     public function edit($slug) {
@@ -46,7 +46,7 @@ class DashboardBlogsController extends Controller
             $blog = $blog[0];
         }
 
-        return view("dashboard.edit_blog", compact("blog", "user"));
+        return view("dashboard.blogs.edit", compact("blog", "user"));
     }
 
     public function update(Request $request, $slug) {
@@ -81,7 +81,7 @@ class DashboardBlogsController extends Controller
     public function create(Request $request) {
         $user = Auth::user();
         
-        return view("dashboard.create", compact("user"));
+        return view("dashboard.blogs.create", compact("user"));
     }
 
     public function store(Request $request) {
