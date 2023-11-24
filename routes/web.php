@@ -64,7 +64,7 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
         Route::controller(DashboardAboutUsController::class)->group(function() {
             Route::prefix("about-us")->group(function() {
                 Route::get("/", "index");
-                Route::get("/{about_us:subsection}/edit", "edit");
+                Route::post("/{about_us:subsection}/update", "update");
             });
         });
     });

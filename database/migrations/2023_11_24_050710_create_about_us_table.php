@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string("section");
-            $table->string("subsection")->unique();
+            $table->string("subsection")->unique()->nullable();
             $table->text("content");
             $table->timestamps();
         });

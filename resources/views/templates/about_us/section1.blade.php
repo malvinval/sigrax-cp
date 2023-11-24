@@ -604,27 +604,61 @@
 
             <div id="about-us-section-1.2" class="w-full ml-0 lg:ml-16 px-4 lg:w-1/2 xl:w-5/12">
                 <div class="mt-10 lg:mt-0">
-                    <p id="about-us-section-1.2.1" class="mb-4 block text-lg font-semibold text-primary">
-                        Why Choose Us
-                    </p>
-                    <h2  id="about-us-section-1.2.2"
-                        class="mb-5 text-3xl font-bold text-gray-800 dark:text-white sm:text-[40px]/[48px]"
-                    >
-                        Make your customers happy by giving services.
-                    </h2>
-                    <p id="about-us-section-1.2.3" class="mb-5 text-base text-body-color dark:text-gray-300">
-                        It is a long established fact that a reader will be distracted
-                        by the readable content of a page when looking at its layout.
-                        The point of using Lorem Ipsum is that it has a more-or-less.
-                    </p>
-                    <p id="about-us-section-1.2.4" class="mb-8 text-base text-body-color dark:text-gray-300">
-                        A domain name is one of the first steps to establishing your
-                        brand. Secure a consistent brand image with a domain name that
-                        matches your business.
-                    </p>
-                    <a id="about-us-section-1.2.5" class="cursor-pointer inline-flex items-center justify-center rounded-md bg-sigrax-yellow px-7 py-3 text-center text-base text-gray-900 font-bold hover:bg-red-500 hover:text-white">
+                    
+                    @if($edit_mode == "1")
+                        <form onsubmit="return confirm('Do you really want to update this content?');" class="py-1 flex flex-col md:flex-row" method="POST" action="/dashboard/about-us/{{ $contents->where("subsection", "1.2.1")->first()->subsection }}/update">
+                            @csrf
+                            <textarea class="p-1 w-full md:w-3/4 border border-gray-200" name="content" id="content" cols="30" rows="5">{{ $contents->where("subsection", "1.2.1")->first()->content }}</textarea>
+                            <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
+                        </form>
+                    @else
+                        <p id="about-us-section-1.2.1" class="mb-4 block text-lg font-semibold text-primary">
+                            {{ $contents->where("subsection", "1.2.1")->first()->content }}
+                        </p>
+                    @endif
+                    
+                    @if($edit_mode == "1")
+                        <form onsubmit="return confirm('Do you really want to update this content?');" class="py-1 flex flex-col md:flex-row" method="POST" action="/dashboard/about-us/{{ $contents->where("subsection", "1.2.2")->first()->subsection }}/update">
+                            @csrf
+                            <textarea class="p-1 w-full md:w-3/4 border border-gray-200" name="content" id="content" cols="30" rows="5">{{ $contents->where("subsection", "1.2.2")->first()->content }}</textarea>
+                            <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
+                        </form>
+                    @else
+                        <h2  id="about-us-section-1.2.2"
+                            class="mb-5 text-3xl font-bold text-gray-800 dark:text-white sm:text-[40px]/[48px]"
+                        >
+                        {{ $contents->where("subsection", "1.2.2")->first()->content }}
+                        </h2>
+                    @endif
+                    
+                    @if($edit_mode == "1")
+                        <form onsubmit="return confirm('Do you really want to update this content?');" class="py-1 flex flex-col md:flex-row" method="POST" action="/dashboard/about-us/{{ $contents->where("subsection", "1.2.3")->first()->subsection }}/update">
+                            @csrf
+                            <textarea class="p-1 w-full md:w-3/4 border border-gray-200" name="content" id="content" cols="30" rows="5">{{ $contents->where("subsection", "1.2.3")->first()->content }}</textarea>
+                            <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
+                        </form>
+                    @else
+                        <p id="about-us-section-1.2.3" class="mb-5 text-base text-body-color dark:text-gray-300">
+                            {{ $contents->where("subsection", "1.2.3")->first()->content }}
+                        </p>
+                    @endif
+
+                    @if($edit_mode == "1")
+                        <form onsubmit="return confirm('Do you really want to update this content?');" class="py-1 flex flex-col md:flex-row" method="POST" action="/dashboard/about-us/{{ $contents->where("subsection", "1.2.4")->first()->subsection }}/update">
+                            @csrf
+                            <textarea class="p-1 w-full md:w-3/4 border border-gray-200" name="content" id="content" cols="30" rows="5">{{ $contents->where("subsection", "1.2.4")->first()->content }}</textarea>
+                            <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
+                        </form>
+                    @else
+                        <p id="about-us-section-1.2.4" class="mb-8 text-base text-body-color dark:text-gray-300">
+                            {{ $contents->where("subsection", "1.2.4")->first()->content }}
+                        </p>
+                    @endif
+                    
+                    
+                    {{-- <a id="about-us-section-1.2.5" class="cursor-pointer inline-flex items-center justify-center rounded-md bg-sigrax-yellow px-7 py-3 text-center text-base text-white font-bold hover:bg-red-500 hover:text-white">
                         Get Started
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>

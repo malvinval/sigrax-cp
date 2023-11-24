@@ -8,7 +8,7 @@
             <section id="about-us-section-1">
                 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                     @include("templates.about_us.section1", compact(
-                        "data"
+                        "contents", "edit_mode"
                     ))
                 </div>
             </section>
