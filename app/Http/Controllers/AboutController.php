@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     public function index() {
-        return view("about");
+        $data = "JUDUL";
+        return view("about", compact("data"));
     }
 }

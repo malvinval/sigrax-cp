@@ -24,25 +24,9 @@
 
     <div>
         @if($contents->count() > 0)
-            @foreach($contents as $c)
-            <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                <div class="flex justify-between items-center mb-5 text-gray-500">
-                    <span class="text-sm">last updated: {{ $c->updated_at }}</span>
-                </div>
-                <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="}">{{ $c->subsection }}</a></h2>
-                <p class="mb-5 font-medium text-gray-500">{{ $c->content }}</p>
-                <div class="flex flex-col md:flex-row justify-between md:items-center">
-                    <div class="pt-5 flex ">
-                        <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/about-us/{{ $c->subsection }}">View</a>
-                        <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/about-us/{{ $c->subsection }}/edit">Edit</a>
-                        <form onsubmit="return confirm('Do you really want to delete this blog?');" action="/dashboard/blogs/{{ $c->subsection }}/destroy" method="POST">
-                        @csrf
-                        <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
-                        </form>
-                    </div>
-                </div>
-            </article>                
-        @endforeach
+            <div class="border-dotted border-4 border-opacity-100 border-gray-400 rounded-lg py-5">
+                @include("templates.about_us.section$section")         
+            </div>
         @else
             <p class="text-red-500 py-5">This section is empty.</p>
         @endif
