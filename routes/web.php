@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
+use App\Http\Controllers\ProductAndFeaturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::get("/blog/{slug}", [BlogsController::class, "blog"]);
 
 Route::get("/contact-us", [ContactController::class, "index"]);
 Route::get("/about", [AboutController::class, "index"]);
+Route::get("/product-and-features", [ProductAndFeaturesController::class, "index"]);
 
 Route::controller(AuthController::class)->group(function() {
     Route::middleware("guest")->group(function() {
