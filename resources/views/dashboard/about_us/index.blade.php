@@ -24,7 +24,7 @@
 
     <div>
         @if($contents->count() > 0)
-            <div class="border-dotted border-4 border-opacity-100 border-gray-400 rounded-lg py-5">
+            <div class="rounded-lg py-5">
                 @include("templates.about_us.section$section")         
             </div>
         @else
