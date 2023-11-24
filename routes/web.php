@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
 
@@ -59,5 +60,12 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
         });
 
         Route::resource("/manage-contacts", DashboardContactController::class)->except("show");
+
+        Route::controller(DashboardAboutUsController::class)->group(function() {
+            Route::prefix("about-us")->group(function() {
+                Route::get("/", "index");
+                Route::get("/{about_us:subsection}/edit", "edit");
+            });
+        });
     });
 });
