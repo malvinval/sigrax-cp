@@ -7,7 +7,7 @@ use App\Trait\ContactsTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ContactController extends Controller
+class DashboardContactController extends Controller
 {
     use ContactsTrait;
 

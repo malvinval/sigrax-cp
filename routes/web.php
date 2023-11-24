@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -55,6 +55,6 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
             });
         });
 
-        Route::resource("/manage-contacts", ContactController::class)->except("show");
+        Route::resource("/manage-contacts", DashboardContactController::class)->except("show");
     });
 });
