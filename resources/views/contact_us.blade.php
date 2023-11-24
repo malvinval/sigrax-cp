@@ -13,7 +13,7 @@
                         <p class="text-gray-500 sm:text-xl dark:text-gray-400">If you have questions or want to collaborate, fell free to contact us!</p>
                         
                         @if($contacts->count() < 1)
-                            <p class="text-red-500 font-bold py-24">No blogs yet.</p>
+                            <p class="text-red-500 font-bold py-24">No contacts yet.</p>
                         @endif
                     </div> 
                     <div class="grid gap-8 lg:grid-cols-2">
