@@ -612,7 +612,7 @@
                             <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
                         </form>
                     @else
-                        <p id="about-us-section-1.2.1" class="text-justify mb-4 block text-lg font-semibold text-primary">
+                        <p id="about-us-section-1.2.1" class="text-justify dark:text-gray-200 mb-4 block text-lg font-semibold text-primary">
                             {{ $contents->where("subsection", "1.2.1")->first()->content }}
                         </p>
                     @endif

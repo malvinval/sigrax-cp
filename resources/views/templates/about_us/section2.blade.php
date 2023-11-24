@@ -1,5 +1,5 @@
 <div
-    class="relative bg-white dark:bg-dark"
+    class="relative bg-white dark:bg-transparent"
   >
     <div class="container mx-auto">
       <div class="-mx-4 flex flex-col-reverse md:flex-row justify-center flex-wrap items-center">
@@ -24,7 +24,7 @@
                       <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
                   </form>
               @else
-                  <p class="mb-8 text-justify max-w-[480px] text-base text-body-color dark:text-dark-6">
+                  <p class="mb-8 text-justify max-w-[480px] text-base text-body-color dark:text-gray-200">
                       {{ $contents->where("subsection", "2.2.1")->first()->content }}
                   </p>
               @endif
