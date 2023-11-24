@@ -53,5 +53,21 @@ class AboutUsContentSeeder extends Seeder
             "created_at" => now(),
             "updated_at" => now()
         ]);
+
+        DB::table("about_us")->insert([
+            "section" => "2",
+            "subsection" => "2.1.1",
+            "content" => "The Greatest Journey Of Online Payment.",
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
+
+        DB::table("about_us")->insert([
+            "section" => "2",
+            "subsection" => "2.2.1",
+            "content" => "With TailGrids, business and students thrive together. Business can perfectly match their staffing to changing demand throughout the dayed.",
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
     }
 }

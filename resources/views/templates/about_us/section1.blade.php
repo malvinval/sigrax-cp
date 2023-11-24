@@ -612,7 +612,7 @@
                             <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
                         </form>
                     @else
-                        <p id="about-us-section-1.2.1" class="mb-4 block text-lg font-semibold text-primary">
+                        <p id="about-us-section-1.2.1" class="text-justify mb-4 block text-lg font-semibold text-primary">
                             {{ $contents->where("subsection", "1.2.1")->first()->content }}
                         </p>
                     @endif
@@ -638,7 +638,7 @@
                             <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
                         </form>
                     @else
-                        <p id="about-us-section-1.2.3" class="mb-5 text-base text-body-color dark:text-gray-300">
+                        <p id="about-us-section-1.2.3" class="text-justify mb-5 text-base text-body-color dark:text-gray-300">
                             {{ $contents->where("subsection", "1.2.3")->first()->content }}
                         </p>
                     @endif
@@ -650,7 +650,7 @@
                             <button class="px-5 py-2 bg-sigrax-yellow text-black" type="submit">Update</button>
                         </form>
                     @else
-                        <p id="about-us-section-1.2.4" class="mb-8 text-base text-body-color dark:text-gray-300">
+                        <p id="about-us-section-1.2.4" class="text-justify mb-8 text-base text-body-color dark:text-gray-300">
                             {{ $contents->where("subsection", "1.2.4")->first()->content }}
                         </p>
                     @endif

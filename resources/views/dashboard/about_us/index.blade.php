@@ -30,7 +30,6 @@
                 <option selected value="1">Choose section</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3">3</option>
             </select>
 
             <button class="mx-1 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg" type="submit">Choose</button>
