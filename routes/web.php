@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ServiceController;
+use App\Models\Services;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,5 +68,7 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
                 Route::post("/{about_us:subsection}/update", "update");
             });
         });
+
+        Route::resource("/services", ServiceController::class);
     });
 });
