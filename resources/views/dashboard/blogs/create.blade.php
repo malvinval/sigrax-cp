@@ -20,7 +20,8 @@
 
             <div class="flex flex-col">
                 <label class="text-lg py-2">Content</label>
-                <textarea placeholder="Make an interesting content..." class="p-5 border border-gray-300 rounded-lg" name="content" id="content" cols="30" rows="10" required></textarea>
+                <input id="content" type="hidden" name="content">
+                <trix-editor class="trix-content" input="content"></trix-editor>
             </div>
 
             <div class="flex mt-5 items-center">

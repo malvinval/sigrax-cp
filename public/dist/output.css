@@ -1105,6 +1105,11 @@ video {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
 .bg-sigrax-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(235 195 100 / var(--tw-bg-opacity));
@@ -1118,11 +1123,6 @@ video {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -1523,24 +1523,17 @@ video {
   transition-duration: 300ms;
 }
 
-.font-jost {
-  font-family: Jost, sans-serif;
-}
-
-.text-sigrax-red {
-  color: #db0b49;
-}
-
-.text-sigrax-yellow {
-  color: #ebc364;
-}
-
-.bg-sigrax-red {
-  background-color: #F08080;
-}
-
-.bg-sigrax-yellow {
-  background-color: #ebc364;
+[data-trix-action="attachFiles"],
+[data-trix-attribute="code"],
+[data-trix-attribute="href"],
+[data-trix-attribute="heading1"],
+[data-trix-attribute="quote"],
+[data-trix-attribute="bullet"],
+[data-trix-attribute="number"],
+[data-trix-action="decreaseNestingLevel"],
+[data-trix-action="increaseNestingLevel"],
+[data-trix-button-group="file-tools"] {
+  display: none;
 }
 
 .selection\:text-fuchsia-900 *::-moz-selection {

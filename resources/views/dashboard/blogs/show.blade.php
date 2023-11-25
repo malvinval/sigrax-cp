@@ -31,7 +31,7 @@
                     <h1 class="mb-4 text-3xl font-bold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">{{ $blog->title }}</h1>
 
                     <div class="container text-justify">
-                        {{ $blog->content }}
+                        {!! $blog->content !!}
                     </div>
                 </header>
             </article>
@@ -39,3 +39,4 @@
     </main>
 </div>
 @endsection
+

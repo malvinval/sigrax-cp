@@ -10,8 +10,8 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="../../../dist/output.css">
 
-    {{-- Tailwind CDN --}}
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 </head>
 <body>
     @include('partials/navbar')

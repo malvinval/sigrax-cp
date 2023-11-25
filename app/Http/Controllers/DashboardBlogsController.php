@@ -64,8 +64,8 @@ class DashboardBlogsController extends Controller
             "content" => "required"
         ]);
 
-        $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
-        $validatedData["excerpt"] = $this->generate_excerpt($validatedData["content"], 20);
+        $validatedData["slug"] = $blog_collection["slug"];
+        $validatedData["excerpt"] = $this->generate_excerpt(html_entity_decode(strip_tags($validatedData["content"])), 20);
 
         if($request->public == "on") {
             $validatedData["isArchived"] = '0';
@@ -92,7 +92,7 @@ class DashboardBlogsController extends Controller
 
         $validatedData["author"] = Auth::user()->name;
         $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
-        $validatedData["excerpt"] = $this->generate_excerpt($validatedData["content"], 20);
+        $validatedData["excerpt"] = $this->generate_excerpt(html_entity_decode(strip_tags($validatedData["content"])), 50);
         $validatedData["hero_image"] = "";
 
         if($request->public == "on") {

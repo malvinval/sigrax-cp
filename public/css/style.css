@@ -4,22 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;700;900&display=swap');
 
-.font-jost {
-    font-family: Jost, sans-serif;
-}
-
-.text-sigrax-red {
-    color: #db0b49;
-}
-
-.text-sigrax-yellow {
-    color: #ebc364;
-}
-
-.bg-sigrax-red {
-    background-color: #F08080;
-}
-
-.bg-sigrax-yellow {
-    background-color: #ebc364;
+[data-trix-action="attachFiles"],
+[data-trix-attribute="code"],
+[data-trix-attribute="href"],
+[data-trix-attribute="heading1"],
+[data-trix-attribute="quote"],
+[data-trix-attribute="bullet"],
+[data-trix-attribute="number"],
+[data-trix-action="decreaseNestingLevel"],
+[data-trix-action="increaseNestingLevel"],
+[data-trix-button-group="file-tools"] {
+    display: none;
 }
