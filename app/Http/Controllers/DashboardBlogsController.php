@@ -63,8 +63,12 @@ class DashboardBlogsController extends Controller
             "title" => "required|min:1|max:255",
             "content" => "required"
         ]);
-
-        $validatedData["slug"] = $blog_collection["slug"];
+        
+        if ($validatedData["title"] == $blog_collection->title) {
+            $validatedData["slug"] = $blog_collection["slug"];
+        } else {
+            $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
+        }
         $validatedData["excerpt"] = $this->generate_excerpt(html_entity_decode(strip_tags($validatedData["content"])), 20);
 
         if($request->public == "on") {
