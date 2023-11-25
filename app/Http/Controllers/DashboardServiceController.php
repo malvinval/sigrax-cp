@@ -133,6 +133,8 @@ class DashboardServiceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Services::destroy($id);
+
+        return redirect("/dashboard/services")->with("success", "Service deleted!");
     }
 }

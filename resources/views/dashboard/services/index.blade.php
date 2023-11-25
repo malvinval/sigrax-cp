@@ -37,8 +37,9 @@
                 <div class="flex items-center justify-center">
                     <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/services/{{ $s->slug }}">View</a>
                     <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/services/{{ $s->slug }}/edit">Edit</a>
-                    <form onsubmit="return confirm('Do you really want to delete this service?');" action="/dashboard/services/{{ $s->id }}/destroy" method="POST">
+                    <form onsubmit="return confirm('Do you really want to delete this service?');" action="/dashboard/services/{{ $s->id }}" method="POST">
                     @csrf
+                    <input type="hidden" name="_method" value="DELETE">
                     <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                     </form>
                 </div>
