@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blogs;
+use App\Trait\ContentHelperTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardBlogsController extends Controller
 {
+    use ContentHelperTrait;
+
     public function index(Request $request) {
         $user = Auth::user();
         $request_path = $request->path();
@@ -50,6 +53,7 @@ class DashboardBlogsController extends Controller
     }
 
     public function update(Request $request, $slug) {
+        $blogs = Blogs::all();
         $blog = Blogs::where("slug", $slug);
         $blog_collection = $blog->get();
 
@@ -67,7 +71,7 @@ class DashboardBlogsController extends Controller
         if ($validatedData["title"] == $blog_collection->title) {
             $validatedData["slug"] = $blog_collection["slug"];
         } else {
-            $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
+            $validatedData["slug"] = $this->generate_slug($validatedData["title"], $blogs);
         }
         $validatedData["excerpt"] = $this->generate_excerpt(html_entity_decode(strip_tags($validatedData["content"])), 20);
 
@@ -94,8 +98,10 @@ class DashboardBlogsController extends Controller
             "content" => "required|min:1",
         ]);
 
+        $blogs = Blogs::all();
+
         $validatedData["author"] = Auth::user()->name;
-        $validatedData["slug"] = $this->generate_slug($validatedData["title"]);
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"], $blogs);
         $validatedData["excerpt"] = $this->generate_excerpt(html_entity_decode(strip_tags($validatedData["content"])), 50);
         $validatedData["hero_image"] = "";
 
@@ -114,31 +120,5 @@ class DashboardBlogsController extends Controller
         Blogs::destroy($id);
 
         return redirect("/dashboard/blogs")->with("success", "Blog deleted!");
-    }
-
-    public function generate_slug($string) {
-        $string = strtolower($string);
-
-        $string = preg_replace('/[^a-zA-Z0-9\s]/', 'x', $string);
-
-        $slug = str_replace(' ', '-', $string);
-
-        // check if slug already used
-        $blog = Blogs::where('slug', $slug)->get();
-
-        if(!$blog->isEmpty()) {
-            $slug .= "-".rand(1, 100000);
-        }
-
-        return $slug;
-    }
-
-    public function generate_excerpt($string, $length) {
-        if (strlen($string) <= $length) {
-            return $string."...";
-        } else {
-            $excerpt = substr($string, 0, $length);
-            return $excerpt."...";
-        }
     }
 }

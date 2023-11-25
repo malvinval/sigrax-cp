@@ -6,8 +6,7 @@ use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\ServiceController;
-use App\Models\Services;
+use App\Http\Controllers\DashboardServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +68,6 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
             });
         });
 
-        Route::resource("/services", ServiceController::class);
+        Route::resource("/services", DashboardServiceController::class);
     });
 });

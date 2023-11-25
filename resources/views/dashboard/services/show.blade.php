@@ -10,7 +10,7 @@
 
   <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
     <div class="pb-10">
-        <a class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/service/{{ $service->slug }}/edit">Edit</a>
+        <a class="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/services/{{ $service->slug }}/edit">Edit</a>
         <a class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg" href="">Delete</a>
       </div>
 
