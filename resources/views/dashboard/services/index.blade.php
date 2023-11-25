@@ -32,12 +32,12 @@
       @if($services->count() > 0)
         @foreach($services as $s)
             <article class="mb-2 p-6 bg-white flex flex-col sm:flex-row justify-between items-center rounded-lg border border-gray-200 shadow-md">
-                <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/blogs/{{ $s->slug }}">{{ $s->title }}</a></h2>
+                <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/services/{{ $s->slug }}">{{ $s->title }}</a></h2>
 
                 <div class="flex items-center justify-center">
                     <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/services/{{ $s->slug }}">View</a>
                     <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/services/{{ $s->slug }}/edit">Edit</a>
-                    <form onsubmit="return confirm('Do you really want to delete this service?');" action="/dashboard/blogs/{{ $s->id }}/destroy" method="POST">
+                    <form onsubmit="return confirm('Do you really want to delete this service?');" action="/dashboard/services/{{ $s->id }}/destroy" method="POST">
                     @csrf
                     <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                     </form>

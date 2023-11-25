@@ -38,9 +38,18 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $services = Services::where("slug", $slug)->get();
+        $user = Auth::user();
+
+        if($services->isEmpty()) {
+            return abort(404);
+        }
+
+        $service = $services[0];
+
+        return view("dashboard.services.show", compact("service", "user"));
     }
 
     /**
