@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use App\Models\Blogs;
 use App\Models\Contact;
+use App\Models\Services;
 
 class IndexController extends Controller
 {
@@ -39,6 +40,15 @@ class IndexController extends Controller
     }
 
     public function services() {
-        return view("services");
+        $services = Services::all();
+
+        return view("services", compact("services"));
+    }
+
+    public function service(string $slug) {
+        $services = Services::where("slug", $slug);
+        $service = $services->get()[0];
+
+        return view("service", compact("service"));
     }
 }

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             UserSeeder::class,
             // ContactSeeder::class,
-            AboutUsContentSeeder::class
+            AboutUsContentSeeder::class,
+            ServiceSeeder::class
         ]);
     }
 }
