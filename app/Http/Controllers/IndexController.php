@@ -20,6 +20,11 @@ class IndexController extends Controller
 
     public function blog(string $slug) {
         $blog = Blogs::where("slug", $slug)->get();
+
+        if($blog->isEmpty()) {
+            return abort(404);
+        }
+
         $blog = $blog[0];
         return view("blog", compact("blog"));
     }
@@ -46,8 +51,13 @@ class IndexController extends Controller
     }
 
     public function service(string $slug) {
-        $services = Services::where("slug", $slug);
-        $service = $services->get()[0];
+        $services = Services::where("slug", $slug)->get();
+
+        if($services->isEmpty()) {
+            return abort(404);
+        }
+
+        $service = $services[0];
 
         return view("service", compact("service"));
     }
