@@ -3,23 +3,44 @@
 namespace App\Trait;
 
 trait ContactsTrait {   
-    public function operateContactValueStandarization($url, $prefix) {
-        if (strpos($url, '/') !== false) {
-            $parts = explode('/', $url);
+    public function operateContactValueStandarization($url, $type) {
+        $result = $url;
+
+        if (strpos($result, '/') !== false) {
+            $parts = explode('/', $result);
             $result = end($parts);
-            return $result;
         }
 
-        return $url;
+        if($type === "WHATSAPP") {
+            $result = $this->generate62PrefixForWhatsapp($result);
+        }
+
+        return $result;
     }
 
-    public function operateContactUrlStandarization($url, $prefix) {
-        if (strpos($url, '/') !== false) {
-            $parts = explode('/', $url);
+    public function operateContactUrlStandarization($url, $prefix, $type) {
+        $result = $url;
+
+        if (strpos($result, '/') !== false) {
+            $parts = explode('/', $result);
             $result = end($parts);
-            return $prefix . $result;
+            // $result = $prefix . $result;
         }
 
-        return $prefix . $url;
+        if($type === "WHATSAPP") {
+            $result = $this->generate62PrefixForWhatsapp($result);
+        }
+        
+        return $prefix . $result;
+    }
+
+    public function generate62PrefixForWhatsapp(string $result) {
+        $position_of_8 = strpos($result, '62');
+
+        if($position_of_8 === false) {
+            return "62" . substr($result, $position_of_8 + 1);
+        } else {
+            return $result;
+        }
     }
 }

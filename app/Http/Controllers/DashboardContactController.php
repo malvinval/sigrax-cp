@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Trait\ContactsTrait;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,7 +46,15 @@ class DashboardContactController extends Controller
 
         $validatedData["url"] = $this->standarizeContactUrl($validatedData["type"], $validatedData["url"]);
 
-        Contact::create($validatedData);
+        try {
+            Contact::create($validatedData);
+        } catch(QueryException $e){
+            $errorCode = $e->errorInfo[1];
+
+            if($errorCode == '1062'){
+                return redirect("/dashboard/manage-contacts")->with("error", "Contact already exist!");
+            }
+        }
 
         return redirect("/dashboard/manage-contacts")->with("success", "New contact created!");
     }
@@ -106,38 +115,38 @@ class DashboardContactController extends Controller
     public function standarizeContactUrl($type, $url) {
         if ($type == "WHATSAPP") {
             $prefix = "https://wa.me/";
-            return $this->operateContactUrlStandarization($url, $prefix);
+            return $this->operateContactUrlStandarization($url, $prefix, $type);
         } else if ($type == "EMAIL") {
             $prefix = "mailto:";
-            return $this->operateContactUrlStandarization($url, $prefix);
+            return $this->operateContactUrlStandarization($url, $prefix, $type);
         } else if ($type == "INSTAGRAM") {
             $prefix = "https://www.instagram.com/";
-            return $this->operateContactUrlStandarization($url, $prefix);
+            return $this->operateContactUrlStandarization($url, $prefix, $type);
         } else if ($type == "GITHUB") {
             $prefix = "https://www.github.com/";
-            return $this->operateContactUrlStandarization($url, $prefix);
+            return $this->operateContactUrlStandarization($url, $prefix, $type);
         }  else if ($type == "TWITTER") {
             $prefix = "https://www.twitter.com/";
-            return $this->operateContactUrlStandarization($url, $prefix);
+            return $this->operateContactUrlStandarization($url, $prefix, $type);
         }
     }
 
     public function standarizeContactValue($type, $url) {
         if($type == "WHATSAPP") {
-            $prefix = "https://wa.me/";
-            return $this->operateContactValueStandarization($url, $prefix);
+            // $prefix = "https://wa.me/";
+            return $this->operateContactValueStandarization($url, $type);
         } else if ($type == "EMAIL") {
-            $prefix = "mailto:";
-            return $this->operateContactValueStandarization($url, $prefix);
+            // $prefix = "mailto:";
+            return $this->operateContactValueStandarization($url, $type);
         } else if ($type == "INSTAGRAM") {
-            $prefix = "https://www.instagram.com/";
-            return $this->operateContactValueStandarization($url, $prefix);
+            // $prefix = "https://www.instagram.com/";
+            return $this->operateContactValueStandarization($url, $type);
         } else if ($type == "GITHUB") {
-            $prefix = "https://www.github.com/";
-            return $this->operateContactValueStandarization($url, $prefix);
+            // $prefix = "https://www.github.com/";
+            return $this->operateContactValueStandarization($url, $type);
         } else if ($type == "TWITTER") {
-            $prefix = "https://www.twitter.com/";
-            return $this->operateContactValueStandarization($url, $prefix);
+            // $prefix = "https://www.twitter.com/";
+            return $this->operateContactValueStandarization($url, $type);
         }
     }
 }
