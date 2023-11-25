@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
-use App\Http\Controllers\ProductAndFeaturesController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +18,15 @@ use App\Http\Controllers\ProductAndFeaturesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(IndexController::class)->group(function() {
+    Route::get("/", "welcome");
+    Route::get("/contact-us", "contact_us");
+    Route::get("/about", "about");
+    Route::get("/product-and-features", "product_and_features");
+    Route::get("/services", "services");
+    Route::get("/blogs", "blogs");
+    Route::get("/blog/{slug}", "blog");
 });
-
-Route::get("/blogs", [BlogsController::class, "index"]);
-Route::get("/blog/{slug}", [BlogsController::class, "blog"]);
-
-Route::get("/contact-us", [ContactController::class, "index"]);
-Route::get("/about", [AboutController::class, "index"]);
-Route::get("/product-and-features", [ProductAndFeaturesController::class, "index"]);
 
 Route::controller(AuthController::class)->group(function() {
     Route::middleware("guest")->group(function() {

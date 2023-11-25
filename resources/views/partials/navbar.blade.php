@@ -42,12 +42,16 @@
                         class="block py-2 pl-3 pr-4 {{ Request::is('product-and-features') ? 'text-sigrax-yellow' : 'text-gray-300' }} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Product & Features</a>
                 </li>
                 <li>
-                    <a href="/contact-us"
-                        class="block py-2 pl-3 pr-4 {{ Request::is('contact-us') ? 'text-sigrax-yellow' : 'text-gray-300' }} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Contact Us</a>
+                    <a href="/services"
+                        class="block py-2 pl-3 pr-4 {{ Request::is('services') ? 'text-sigrax-yellow' : 'text-gray-300' }} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                 </li>
                 <li>
                     <a href="/blogs"
                         class="block py-2 pl-3 pr-4 {{ Request::is('blog*') ? 'text-sigrax-yellow' : 'text-gray-300' }} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Our Blogs</a>
+                </li>
+                <li>
+                    <a href="/contact-us"
+                        class="block py-2 pl-3 pr-4 {{ Request::is('contact-us') ? 'text-sigrax-yellow' : 'text-gray-300' }} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-red-400 lg:p-0 dark:text-gray-300 lg:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-red-400 lg:dark:hover:bg-transparent dark:border-gray-700">Contact Us</a>
                 </li>
             </ul>
         </div>

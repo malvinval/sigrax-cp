@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\AboutUs;
+use App\Models\Blogs;
+use App\Models\Contact;
+
+class IndexController extends Controller
+{
+    public function welcome() {
+        return view("welcome");
+    }
+
+    public function blogs() {
+        $blogs = Blogs::where("isArchived", '0')->get();
+        return view("blogs", compact("blogs"));
+    }
+
+    public function blog(string $slug) {
+        $blog = Blogs::where("slug", $slug)->get();
+        $blog = $blog[0];
+        return view("blog", compact("blog"));
+    }
+
+    public function contact_us() {
+        $contacts = Contact::all();
+        return view("contact_us", compact("contacts"));
+    }
+
+    public function about() {
+        $contents = AboutUs::all();
+        $edit_mode = 0;
+        return view("about", compact("contents", "edit_mode"));
+    }
+
+    public function product_and_features() {
+        return view("product_and_features");
+    }
+
+    public function services() {
+        return view("services");
+    }
+}
