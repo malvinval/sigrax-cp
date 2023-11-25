@@ -26,7 +26,9 @@ class DashboardServiceController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        
+        return view("dashboard.services.create", compact("user"));
     }
 
     /**
@@ -34,7 +36,24 @@ class DashboardServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "desc" => "required|min:1",
+        ]);
+
+        $blogs = Services::all();
+
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"], $blogs);
+
+        // if($request->public == "on") {
+        //     $validatedData["isArchived"] = '0';
+        // } else {
+        //     $validatedData["isArchived"] = '1';
+        // }
+        
+        Services::create($validatedData);
+
+        return redirect("/dashboard/services")->with("success", "New service created!");
     }
 
     /**
