@@ -15,20 +15,20 @@ class ContactSeeder extends Seeder
     {
         DB::table("contacts")->insert([
             "type" => "EMAIL",
-            "url" => "mailto:maintainance@sigrax.com?Subject=Halo,%20Sigrax!",
-            "slug" => "email"
+            "url" => "mailto:maintainance@sigrax.com",
+            "value" => "maintainance@sigrax.com"
         ]);
 
         DB::table("contacts")->insert([
             "type" => "WHATSAPP",
             "url" => "https://wa.me/628176884026",
-            "slug" => "whatsapp"
+            "value" => "628176884026"
         ]);
 
         DB::table("contacts")->insert([
             "type" => "INSTAGRAM",
-            "url" => "https://www.instagram.com/sigraxcmms/",
-            "slug" => "instagram"
+            "url" => "https://www.instagram.com/sigraxcmms",
+            "value" => "sigraxcmms"
         ]);
     }
 }

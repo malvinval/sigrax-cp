@@ -29,6 +29,7 @@ Route::controller(IndexController::class)->group(function() {
     Route::get("/service/{services:slug}", "service");
     Route::get("/blogs", "blogs");
     Route::get("/blog/{blogs:slug}", "blog");
+    Route::get("/features/{products:slug}", "features");
 });
 
 Route::controller(AuthController::class)->group(function() {

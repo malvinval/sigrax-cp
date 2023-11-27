@@ -12,8 +12,8 @@
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
         <h1 class="font-bold text-xl md:text-3xl pb-5">Archived blogs</h1>
     </div>
-  
-      <div>
+
+    <div>
         @if($blogs->count() > 0)
           @foreach($blogs as $b)
               <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">

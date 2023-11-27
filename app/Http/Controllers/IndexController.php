@@ -7,6 +7,7 @@ use App\Models\Blogs;
 use App\Models\Contact;
 use App\Models\Home;
 use App\Models\Product;
+use App\Models\Features;
 use App\Models\Services;
 
 class IndexController extends Controller
@@ -48,7 +49,7 @@ class IndexController extends Controller
     public function product_and_features() {
         $products = Product::all();
 
-        return view("product_and_features", compact("products"));
+        return view("products_and_features", compact("products"));
     }
 
     public function services() {
@@ -67,5 +68,23 @@ class IndexController extends Controller
         $service = $services[0];
 
         return view("service", compact("service"));
+    }
+
+    public function features(string $product_slug) {
+        $products = Product::where("slug", $product_slug)->get();
+        $features = Features::where("product_slug", $product_slug)->get();
+        
+        if($features->isEmpty()) {
+            return abort(404);
+        }
+        
+        if($products->isEmpty()) {
+            return abort(404);
+        }
+        
+        $products = $products[0];
+        
+        // dd($features->first()->title);
+        return view("features", compact("features", "products"));
     }
 }
