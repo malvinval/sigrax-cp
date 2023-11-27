@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Trait\ContentHelperTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardProductsController extends Controller
 {
+    use ContentHelperTrait;
     /**
      * Display a listing of the resource.
      */
@@ -34,7 +36,16 @@ class DashboardProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "desc" => "required|min:1"
+        ]);
+
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"], Product::all());
+
+        Product::create($validatedData);
+
+        return redirect("/dashboard/products")->with("success", "New product uploaded");
     }
 
     /**

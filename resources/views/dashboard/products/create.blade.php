@@ -20,7 +20,7 @@
 
             <div class="flex flex-col">
                 <label class="text-lg py-2">Desc</label>
-                <input id="content" type="hidden" name="desc">
+                <input id="desc" type="hidden" name="desc">
                 <trix-editor class="trix-content" input="desc"></trix-editor>
             </div>
 
