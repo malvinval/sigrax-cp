@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Features;
+use App\Models\Product;
+use App\Trait\ContentHelperTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardFeaturesController extends Controller
 {
+    use ContentHelperTrait;
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $user = Auth::user();
+        $products = Product::all();
+        $product_slug = $request->input("product");
+        
+        if(!$request->input("product")) {
+            $product_slug = $products->first()->slug;
+        }
+
+        $features = Features::where("product_slug", $product_slug)->get();
+
+        return view("dashboard.features.index", compact("user", "products", "features"));
     }
 
     /**
@@ -33,9 +48,19 @@ class DashboardFeaturesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $product_slug)
     {
-        //
+        // $user = Auth::user();
+
+        // $product = Features::where("product_slug", $product_slug)->get();
+
+        // if ($product->isEmpty()) {
+        //     return abort(404);
+        // } else {
+        //     $product = $product[0];
+        // }
+
+        // return view("dashboard.products.show", compact("product", "user"));
     }
 
     /**
