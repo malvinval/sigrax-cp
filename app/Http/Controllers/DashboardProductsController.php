@@ -59,17 +59,56 @@ class DashboardProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
-        //
+        $user = Auth::user();
+
+        $product = Product::where("slug", $slug)->get();
+
+        if ($product->isEmpty()) {
+            return abort(404);
+        } else {
+            $product = $product[0];
+        }
+
+        return view("dashboard.products.edit", compact("product", "user"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
-        //
+        $products = Product::all();
+        $product = Product::where("slug", $slug);
+        $product_collection = $product->get();
+
+        if ($product_collection->isEmpty()) {
+            return abort(404);
+        } else {
+            $product_collection = $product_collection[0];
+        }
+
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "desc" => "required|min:1"
+        ]);
+        
+        if ($validatedData["title"] == $product_collection->title) {
+            $validatedData["slug"] = $product_collection["slug"];
+        } else {
+            $validatedData["slug"] = $this->generate_slug($validatedData["title"], $products);
+        }
+
+        // if($request->public == "on") {
+        //     $validatedData["isArchived"] = '0';
+        // } else {
+        //     $validatedData["isArchived"] = '1';
+        // }
+
+        $product->update($validatedData);
+
+        return redirect("/dashboard/products")->with("success", "Product updated!");
     }
 
     /**
