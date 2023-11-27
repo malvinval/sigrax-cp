@@ -789,6 +789,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -847,6 +851,30 @@ video {
 
 .min-h-\[910px\] {
   min-height: 910px;
+}
+
+.min-h-\[905px\] {
+  min-height: 905px;
+}
+
+.min-h-\[906px\] {
+  min-height: 906px;
+}
+
+.min-h-\[907px\] {
+  min-height: 907px;
+}
+
+.min-h-\[908px\] {
+  min-height: 908px;
+}
+
+.min-h-\[909px\] {
+  min-height: 909px;
+}
+
+.min-h-\[9010px\] {
+  min-height: 9010px;
 }
 
 .w-1\/2 {

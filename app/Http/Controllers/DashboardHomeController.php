@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutUs;
+use App\Models\Home;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DashboardAboutUsController extends Controller
+class DashboardHomeController extends Controller
 {
     public function index(Request $request) {
         $user = Auth::user();
@@ -21,13 +21,13 @@ class DashboardAboutUsController extends Controller
             $edit_mode = "1";
         }
             
-        $contents = AboutUs::where("section", $section)->get();
+        $contents = Home::where("section", $section)->get();
 
-        return view("dashboard.about_us.index", compact("user", "contents", "section", "edit_mode"));
+        return view("dashboard.home.index", compact("user", "contents", "section", "edit_mode"));
     }
 
     public function update(Request $request, string $subsection) {
-        $content = AboutUs::where("subsection", $subsection);
+        $content = Home::where("subsection", $subsection);
 
         $validatedData = $request->validate([
             "content" => "required|min:1"

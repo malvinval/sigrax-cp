@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardHomeController;
 use App\Http\Controllers\DashboardAboutUsController;
 use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
@@ -69,5 +70,10 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
         });
 
         Route::resource("/services", DashboardServiceController::class);
+
+        Route::controller(DashboardHomeController::class)->group(function() {
+            Route::get("/home","index");
+            Route::post("/home/{homes:subsection}/update", "update");
+        });
     });
 });

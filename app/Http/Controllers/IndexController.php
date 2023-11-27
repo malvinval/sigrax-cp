@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use App\Models\Blogs;
 use App\Models\Contact;
+use App\Models\Home;
 use App\Models\Services;
 
 class IndexController extends Controller
 {
     public function welcome() {
-        return view("welcome");
+        $contents = Home::all();
+        $edit_mode = 0;
+
+        return view("welcome", compact("contents", "edit_mode"));
     }
 
     public function blogs() {

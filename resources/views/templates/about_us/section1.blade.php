@@ -654,11 +654,6 @@
                             {{ $contents->where("subsection", "1.2.4")->first()->content }}
                         </p>
                     @endif
-                    
-                    
-                    {{-- <a id="about-us-section-1.2.5" class="cursor-pointer inline-flex items-center justify-center rounded-md bg-sigrax-yellow px-7 py-3 text-center text-base text-white font-bold hover:bg-red-500 hover:text-white">
-                        Get Started
-                    </a> --}}
                 </div>
             </div>
         </div>
