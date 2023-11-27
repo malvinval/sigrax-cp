@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Blogs;
 use App\Models\Contact;
 use App\Models\Home;
+use App\Models\Product;
 use App\Models\Services;
 
 class IndexController extends Controller
@@ -45,7 +46,9 @@ class IndexController extends Controller
     }
 
     public function product_and_features() {
-        return view("product_and_features");
+        $products = Product::all();
+
+        return view("product_and_features", compact("products"));
     }
 
     public function services() {
