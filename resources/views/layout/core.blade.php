@@ -23,8 +23,8 @@
 
 {{-- Dashboard sidebar js --}}
 <script type="text/javascript">
-    function dropdown() {
-      document.querySelector("#submenu").classList.toggle("hidden");
+    function dropdown(id) {
+      document.querySelector(id).classList.toggle("hidden");
       document.querySelector("#arrow").classList.toggle("rotate-0");
     }
     dropdown();

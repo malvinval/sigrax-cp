@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardContactController;
 use App\Http\Controllers\DashboardBlogsController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardServiceController;
+use App\Http\Controllers\DashboardProductsController;
+use App\Http\Controllers\DashboardFeaturesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,5 +78,8 @@ Route::middleware(["auth", "isAdmin"])->group(function() {
             Route::get("/home","index");
             Route::post("/home/{homes:subsection}/update", "update");
         });
+
+        Route::resource("/products", DashboardProductsController::class);
+        Route::resource("/features", DashboardFeaturesController::class);
     });
 });
