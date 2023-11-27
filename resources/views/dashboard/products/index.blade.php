@@ -30,16 +30,17 @@
 
     <div>
       @if($products->count() > 0)
-        @foreach($products as $b)
+        @foreach($products as $p)
             <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
-                <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/products/{{ $b->slug }}">{{ $b->title }}</a></h2>
+                <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/products/{{ $p->slug }}">{{ $p->title }}</a></h2>
                 
                 <div class="flex flex-col md:flex-row justify-between md:items-center">
                     <div class="pt-5 flex ">
-                      <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/products/{{ $b->slug }}">View</a>
-                      <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/products/{{ $b->slug }}/edit">Edit</a>
-                      <form onsubmit="return confirm('Do you really want to delete this blog?');" action="/dashboard/products/{{ $b->id }}" method="POST">
+                      <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/products/{{ $p->slug }}">View</a>
+                      <a class="px-3 mr-1 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg" href="/dashboard/products/{{ $p->slug }}/edit">Edit</a>
+                      <form onsubmit="return confirm('Do you really want to delete this product?');" action="/dashboard/products/{{ $p->id }}" method="POST">
                         @csrf
+                        <input type="hidden" name="_method" value="DELETE">
                         <button class="px-3 py-1 bg-red-500 hover:bg-red-700 text-white rounded-lg">Delete</button>
                       </form>
                     </div>

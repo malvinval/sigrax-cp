@@ -51,9 +51,19 @@ class DashboardProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $user = Auth::user();
+
+        $product = Product::where("slug", $slug)->get();
+
+        if ($product->isEmpty()) {
+            return abort(404);
+        } else {
+            $product = $product[0];
+        }
+
+        return view("dashboard.products.show", compact("product", "user"));
     }
 
     /**
@@ -116,6 +126,8 @@ class DashboardProductsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Product::destroy($id);
+
+        return redirect("/dashboard/products")->with("success", "Product deleted!");
     }
 }
