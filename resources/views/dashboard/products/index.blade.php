@@ -33,7 +33,7 @@
         @foreach($products as $b)
             <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                 <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/products/{{ $b->slug }}">{{ $b->title }}</a></h2>
-                <p class="mb-5 font-light text-gray-500">{{ $b->excerpt }}</p>
+                
                 <div class="flex flex-col md:flex-row justify-between md:items-center">
                     <div class="pt-5 flex ">
                       <a class="px-3 mr-1 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-lg" href="/dashboard/products/{{ $b->slug }}">View</a>

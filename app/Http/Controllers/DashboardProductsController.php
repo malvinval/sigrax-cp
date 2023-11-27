@@ -24,7 +24,9 @@ class DashboardProductsController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+
+        return view("dashboard.products.create", compact("user"));
     }
 
     /**
