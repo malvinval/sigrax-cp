@@ -113,9 +113,44 @@ class DashboardFeaturesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
-        //
+        if(!$request->input("product")) {
+            return abort(400);
+        }
+
+        $features = Features::all();
+        $feature = Features::where("slug", $slug);
+        $feature_collection = $feature->get();
+
+        if ($feature_collection->isEmpty()) {
+            return abort(404);
+        } else {
+            $feature_collection = $feature_collection[0];
+        }
+
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "desc" => "required|min:1"
+        ]);
+        
+        if ($validatedData["title"] == $feature_collection->title) {
+            $validatedData["slug"] = $feature_collection["slug"];
+        } else {
+            $validatedData["slug"] = $this->generate_slug($validatedData["title"], $features);
+        }
+
+        $validatedData["product_slug"] = $request->input("product");
+
+        // if($request->public == "on") {
+        //     $validatedData["isArchived"] = '0';
+        // } else {
+        //     $validatedData["isArchived"] = '1';
+        // }
+
+        $feature->update($validatedData);
+
+        return redirect("/dashboard/features?product=".$request->input("product"))->with("success", "Feature updated!");
     }
 
     /**
