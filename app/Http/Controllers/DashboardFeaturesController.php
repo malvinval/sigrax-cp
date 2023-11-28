@@ -48,19 +48,21 @@ class DashboardFeaturesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $product_slug)
+    public function show(string $slug)
     {
-        // $user = Auth::user();
+        $user = Auth::user();
 
-        // $product = Features::where("product_slug", $product_slug)->get();
+        $feature = Features::where("slug", $slug)->get();
+        
+        if ($feature->isEmpty()) {
+            return abort(404);
+        } else {
+            $feature = $feature[0];
+        }
 
-        // if ($product->isEmpty()) {
-        //     return abort(404);
-        // } else {
-        //     $product = $product[0];
-        // }
+        $product = Product::where("slug", $feature->product_slug)->get();
 
-        // return view("dashboard.products.show", compact("product", "user"));
+        return view("dashboard.features.show", compact("feature", "user", "product"));
     }
 
     /**
