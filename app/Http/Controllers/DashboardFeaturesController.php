@@ -32,9 +32,18 @@ class DashboardFeaturesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth::user();
+        $product = Product::where("slug", $request->input("product"))->get();
+
+        if ($product->isEmpty()) {
+            return abort(404);
+        } else {
+            $product = $product[0];
+        }
+
+        return view("dashboard.features.create", compact("user", "product"));
     }
 
     /**
@@ -42,7 +51,23 @@ class DashboardFeaturesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!$request->input("product")) {
+            return abort(400);
+        }
+
+        $validatedData = $request->validate([
+            "title" => "required|min:1|max:255",
+            "desc" => "required|min:1"
+        ]);
+
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"], Product::all());
+        $validatedData["product_slug"] = $request->input("product");
+
+        // dd($validatedData);
+
+        Features::create($validatedData);
+
+        return redirect("/dashboard/features?product=".$request->input('product'))->with("success", "New product uploaded");
     }
 
     /**

@@ -11,7 +11,7 @@
   <div class="font-jost ml-0 lg:ml-80 mt-16 lg:mt-24 p-5">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
       <h1 class="font-bold text-xl md:text-3xl pb-5">Features of {{ $products->where("slug", Request::input("product"))->first()->title ?? $products->first()->title }}</h1>
-      <a class="bg-green-600 px-3 py-1 rounded-lg text-white mb-5 md:mb-0 hover:bg-green-500" href="/dashboard/features/create">Create new feature</a>
+      <a class="bg-green-600 px-3 py-1 rounded-lg text-white mb-5 md:mb-0 hover:bg-green-500" href="/dashboard/features/create?product={{ Request::input('product') ?? $products->first()->slug }}">Create new feature</a>
     
     </div>
 
@@ -48,7 +48,7 @@
             <article class="mb-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
                 <h2 class="mb-2 text-2xl tracking-tight text-gray-900"><a href="/dashboard/features/{{ $p->slug }}">{{ $p->title }}</a></h2>
 
-                <p class="font-light text-gray-700">{{ Str::limit($p->desc, 100) }}</p>
+                <p class="font-light text-gray-700">{{ Str::limit(strip_tags($p->desc), 100) }}</p>
 
                 <div class="flex flex-col md:flex-row justify-between md:items-center">
                     <div class="pt-5 flex ">
