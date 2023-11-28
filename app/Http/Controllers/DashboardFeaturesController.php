@@ -60,14 +60,14 @@ class DashboardFeaturesController extends Controller
             "desc" => "required|min:1"
         ]);
 
-        $validatedData["slug"] = $this->generate_slug($validatedData["title"], Product::all());
+        $validatedData["slug"] = $this->generate_slug($validatedData["title"], Features::all());
         $validatedData["product_slug"] = $request->input("product");
 
         // dd($validatedData);
 
         Features::create($validatedData);
 
-        return redirect("/dashboard/features?product=".$request->input('product'))->with("success", "New product uploaded");
+        return redirect("/dashboard/features?product=".$request->input('product'))->with("success", "New feature uploaded");
     }
 
     /**
@@ -93,9 +93,21 @@ class DashboardFeaturesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
-        //
+        $user = Auth::user();
+
+        $feature = Features::where("slug", $slug)->get();
+
+        if ($feature->isEmpty()) {
+            return abort(404);
+        } else {
+            $feature = $feature[0];
+        }
+
+        $product = Product::where("slug", $feature->product_slug)->get();
+
+        return view("dashboard.features.edit", compact("feature", "user", "product"));
     }
 
     /**
