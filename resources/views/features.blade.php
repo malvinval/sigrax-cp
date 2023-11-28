@@ -17,7 +17,7 @@
                     </div> 
                     <div class="">
                         @foreach($features as $f)
-                            <article class="my-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                            <article class="my-5 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                                 {{-- <div class="flex justify-between items-center mb-5 text-gray-500">
                                     <span class="text-sm">{{ $f->created_at }}</span>
                                 </div> --}}
