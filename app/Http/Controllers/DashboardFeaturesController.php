@@ -158,6 +158,8 @@ class DashboardFeaturesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Features::destroy($id);
+
+        return redirect("/dashboard/features")->with("success", "Feature deleted!");
     }
 }
