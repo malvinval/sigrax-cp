@@ -20,8 +20,23 @@
                 <header class="mb-4 lg:mb-6 not-format">
                     <h1 class="mb-4 text-3xl font-bold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">{{ $product->title }}</h1>
 
-                    <div class="container text-justify">
+                    <div class="container mb-4 text-justify">
                         {!! $product->desc !!}
+                    </div>
+
+                    <h1 class="mb-4 text-xl font-bold leading-tight text-gray-900 lg:mb-6 lg:text-2xl">All features:</h1>
+                
+                    <div class="">
+                        @foreach($features as $f)
+                            <article class="my-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                                {{-- <div class="flex justify-between items-center mb-5 text-gray-500">
+                                    <span class="text-sm">{{ $f->created_at }}</span>
+                                </div> --}}
+                                <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{{ $loop->iteration }}. {{ $f->title }}</h2>
+                                <hr class="mb-3">
+                                <p class="text-justify">{!! $f->desc !!}</p>
+                            </article>       
+                        @endforeach
                     </div>
                 </header>
             </article>

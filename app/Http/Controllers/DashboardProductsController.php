@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Features;
 use App\Models\Product;
 use App\Trait\ContentHelperTrait;
 use Illuminate\Http\Request;
@@ -63,7 +64,9 @@ class DashboardProductsController extends Controller
             $product = $product[0];
         }
 
-        return view("dashboard.products.show", compact("product", "user"));
+        $features = Features::where("product_slug", $slug)->get();
+
+        return view("dashboard.products.show", compact("product", "user", "features"));
     }
 
     /**
