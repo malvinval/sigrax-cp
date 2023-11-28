@@ -13,7 +13,7 @@
                 class="text-gray-800 font-semibold bg-sigrax-yellow hover:bg-sigrax-red focus:ring-4 focus:ring-yellow-300 rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-sigrax-yellow dark:hover:bg-sigrax-yellow focus:outline-none dark:focus:ring-yellow-800">CMMS</a>
             <button data-collapse-toggle="mobile-menu-2" type="button"
 				class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-				aria-controls="mobile-menu-2" aria-expanded="true">
+				aria-controls="mobile-menu-2">
 				<span class="sr-only">Open main menu</span>
 				<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 					<path fill-rule="evenodd"
