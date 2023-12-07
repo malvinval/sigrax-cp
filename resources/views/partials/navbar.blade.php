@@ -2,7 +2,7 @@
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="/" class="flex items-center">
             <img src="{{ url('images/sigrax-logo.webp')}}" class="h-8 me-3" alt="Sigrax Logo" />
-            <span class="text-white self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sigrax</span>
+            <span class="text-white self-center text-xl font-roboto font-semibold whitespace-nowrap dark:text-white">SIGRAX</span>
         </a>
         <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">

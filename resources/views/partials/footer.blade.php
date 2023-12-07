@@ -31,7 +31,7 @@
         <div class="mb-6 md:mb-0">
             <a href="/" class="flex items-center">
                 <img src="{{ url('images/sigrax-logo.webp')}}" class="h-8 me-3" alt="Sigrax Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Sigrax CMMS</span>
+                <span class="self-center text-2xl font-semibold font-roboto whitespace-nowrap text-white">SIGRAX CMMS</span>
             </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">

@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "jost": ['Jost', 'sans-serif']
+        "jost": ['Jost', 'sans-serif'],
+        "roboto" : ['Roboto Condensed', 'sans-serif']
       },
 
       backgroundColor: {
