@@ -1,8 +1,8 @@
 <nav class="z-50 fixed top-0 left-0 right-0 font-jost bg-gray-900 border-gray-200 py-2.5 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
         <a href="/" class="flex items-center">
-            
-            <span class="text-white self-center text-xl font-semibold whitespace-nowrap dark:text-white">Sigrax</span>
+            <img src="{{ url('images/sigrax-logo.webp')}}" class="h-8 me-3" alt="Sigrax Logo" />
+            <span class="text-white self-center text-xl font-roboto font-semibold whitespace-nowrap dark:text-white">SIGRAX</span>
         </a>
         <div class="flex items-center lg:order-2">
             <div class="hidden mt-2 mr-4 sm:inline-block">

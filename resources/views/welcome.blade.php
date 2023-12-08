@@ -1,7 +1,7 @@
 @extends("layout/core")
 
 @section("container")
-    <div class="min-h-[906px] hero">
+    <div class="hero">
         @if($contents->count() > 0)
             @if($contents->where("section", "1")->count() > 0)
                 @include("templates.home.section1")

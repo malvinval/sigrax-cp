@@ -2,7 +2,7 @@
     <div class="  flex-grow lg:h-screen text-center font-jost grid place-items-center mx-auto sm:w-full lg:w-1/3 pt-24 lg:pt-0 pb-16 lg:pb-0 bg-gradient-to-b lg:bg-gradient-to-r from-red-500 to-slate-800">
         <img class="pt-8 w-1/2 sm:w-1/4 lg:w-3/4 mx-auto drop-shadow-xl" src="{{ asset('images/sigrax-logo.png') }}" alt="Dashboard">            
     </div>
-    <div class="flex-grow lg:h-screen text-left font-jost mx-auto grid place-items-center lg:w-1/2 pt-12 lg:pt-6 pb-16 px-10 lg:px-12 bg-white dark:bg-slate-800">
+    <div class="flex-grow lg:h-screen text-left font-jost mx-auto grid place-items-center lg:w-1/2 pt-12 lg:pt-6 pb-16 lg:pb-0 px-10 lg:px-12 bg-white dark:bg-slate-800">
         <div>
             @if($edit_mode == "1")
                 <form onsubmit="return confirm('Do you really want to update this content?');" class="py-1 flex flex-col md:flex-row" method="POST" action="/dashboard/home/{{ $contents->where("subsection", "1.2.1")->first()->subsection }}/update">
