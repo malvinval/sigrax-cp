@@ -37,6 +37,14 @@
                 <label class="mx-2" for="public"><p class="text-lg">Set as Public</p></label>
             </div> --}}
 
+            <div class="flex flex-col">
+                <label for="heroimage" class="text-lg py-2">Image (optional)</label>
+
+                <img class="mb-5" src="{{ asset('storage/'.$feature->heroimage) }}" alt="">
+
+                <input id="heroimage" type="file" name="heroimage">
+            </div>
+
             <button type="submit" class="w-full md:w-1/2 py-2 font-bold rounded-lg my-5 text-white bg-yellow-500 hover:bg-yellow-600">Update</button>
         </form>
     </div>
