@@ -12,7 +12,7 @@
 
         <p class="pb-5 text-xl">Related product: <span class="underline">{{ $product->first()->title }}</span></p>
 
-        <form onsubmit="return confirm('Do you really want to update this feature?');" method="POST" action="/dashboard/features/{{ $feature->slug }}?product={{ $feature->product_slug }}" class="w-full lg:w-1/2">
+        <form enctype="multipart/form-data" onsubmit="return confirm('Do you really want to update this feature?');" method="POST" action="/dashboard/features/{{ $feature->slug }}?product={{ $feature->product_slug }}" class="w-full lg:w-1/2">
             @csrf
 
             <input type="hidden" name="_method" value="PUT">

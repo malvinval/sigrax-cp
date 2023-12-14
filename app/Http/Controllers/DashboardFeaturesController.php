@@ -134,7 +134,8 @@ class DashboardFeaturesController extends Controller
 
         $validatedData = $request->validate([
             "title" => "required|min:1|max:255",
-            "desc" => "required|min:1"
+            "desc" => "required|min:1",
+            "heroimage" => "image|file"
         ]);
         
         if ($validatedData["title"] == $feature_collection->title) {
@@ -150,6 +151,10 @@ class DashboardFeaturesController extends Controller
         // } else {
         //     $validatedData["isArchived"] = '1';
         // }
+
+        if($request->file("heroimage")) {
+            $validatedData["heroimage"] = $request->file("heroimage")->store("feature-images");
+        }
 
         $feature->update($validatedData);
 
