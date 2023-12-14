@@ -23,8 +23,11 @@
                                 </div> --}}
                                 <h2 class="mb-2 text-2xl tracking-tight text-gray-900 dark:text-white">{{ $loop->iteration }}. {{ $f->title }}</h2>
                                 <hr class="mb-3">
+                                <div class="w-full md:w-1/2 mb-5">
+                                    <img src="{{ asset('storage/' . $f->heroimage) }}" alt="">
+                                </div>
                                 <p class="text-justify">{!! $f->desc !!}</p>
-                            </article>       
+                            </article>
                         @endforeach
                     </div>  
                 </div>

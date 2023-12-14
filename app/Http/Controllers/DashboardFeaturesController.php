@@ -57,13 +57,16 @@ class DashboardFeaturesController extends Controller
 
         $validatedData = $request->validate([
             "title" => "required|min:1|max:255",
-            "desc" => "required|min:1"
+            "desc" => "required|min:1",
+            "heroimage" => "image|file"
         ]);
 
         $validatedData["slug"] = $this->generate_slug($validatedData["title"], Features::all());
         $validatedData["product_slug"] = $request->input("product");
 
-        // dd($validatedData);
+        if($request->file("heroimage")) {
+            $validatedData["heroimage"] = $request->file("heroimage")->store("feature-images");
+        }
 
         Features::create($validatedData);
 
