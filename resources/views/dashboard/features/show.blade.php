@@ -22,6 +22,10 @@
 
                     <p class="pb-5 text-xl">Related product: <span class="underline">{{ $product->first()->title }}</span></p>
 
+                    <div class="w-full md:w-1/2 mb-5">
+                        <img src="{{ asset('storage/' . $feature->heroimage) }}" alt="">
+                    </div>
+
                     <div class="container text-justify">
                         {!! $feature->desc !!}
                     </div>
